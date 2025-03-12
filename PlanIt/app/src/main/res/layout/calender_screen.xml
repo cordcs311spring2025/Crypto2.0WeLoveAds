@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/calender"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Calender">
+
+    <View
+        android:layout_width="461dp"
+        android:layout_height="104dp"
+        android:background="@color/teal"
+        tools:layout_editor_absoluteX="-35dp"
+        tools:layout_editor_absoluteY="637dp" />
+
+
+    <!---basics-->
+    <ImageView
+        android:layout_width="83dp"
+        android:layout_height="67dp"
+        android:src="@drawable/icon"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="21dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054" />
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="78dp"
+        android:text="@string/nav_add"
+        android:textColor="@color/teal"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <!--navbar-->
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:text="@string/nav_today"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992" />
+
+    <ImageView
+        android:id="@+id/homeButton"
+        android:layout_width="47dp"
+        android:layout_height="48dp"
+        android:src="@drawable/today"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="651dp" />
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:text="@string/nav_schedule"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.991" />
+
+    <ImageView
+        android:id="@+id/scheduleButton"
+        android:layout_width="47dp"
+        android:layout_height="48dp"
+        android:src="@drawable/calender"
+        tools:layout_editor_absoluteX="127dp"
+        tools:layout_editor_absoluteY="651dp" />
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="696dp"
+        android:text="@string/nav_search"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.669"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/searchButton"
+        android:layout_width="47dp"
+        android:layout_height="48dp"
+        android:src="@drawable/search"
+        tools:layout_editor_absoluteX="233dp"
+        tools:layout_editor_absoluteY="651dp" />
+
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:text="@string/nav_settings"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992" />
+
+    <ImageView
+        android:id="@+id/settingsButton"
+        android:layout_width="47dp"
+        android:layout_height="48dp"
+        android:src="@drawable/settings"
+        tools:layout_editor_absoluteX="339dp"
+        tools:layout_editor_absoluteY="651dp" />
+
+
+    <!--Calender-->
+
+    <ImageView
+        android:layout_width="465dp"
+        android:layout_height="350dp"
+        android:src="@drawable/schedule_ex"
+        tools:layout_editor_absoluteX="-34dp"
+        tools:layout_editor_absoluteY="111dp" />
+
+    <!--occassions-->
+    <TextView
+        android:layout_width="146dp"
+        android:layout_height="45dp"
+        android:text="@string/occassion"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.686" />
+
+    <TextView
+        android:id="@+id/occassionText"
+        android:layout_width="146dp"
+        android:layout_height="45dp"
+        android:text="@string/O_event_1"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.752" />
+
+    <TextView
+        android:id="@+id/occassionDOW"
+        android:layout_width="146dp"
+        android:layout_height="45dp"
+        android:text="@string/O_DayOfWeek"
+        android:textColor="@color/teal"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.752" />
+
+    <TextView
+        android:id="@+id/occassionTime"
+        android:layout_width="146dp"
+        android:layout_height="45dp"
+        android:text="@string/O_time_1"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.705"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.752" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
