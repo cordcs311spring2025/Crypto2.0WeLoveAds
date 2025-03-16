@@ -2,18 +2,157 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/addEvent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <!---basics-->
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo2"
+        android:layout_width="@string/logoWidth"
+        android:layout_height="@string/logoHeight"
+        android:src="@drawable/icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
+
+    <TextView
+        android:id="@+id/addEvent4"
+        android:layout_width="70dp"
+        android:layout_height="78dp"
+        android:text="@string/nav_add"
+        android:textColor="@color/teal"
+        android:textSize="80sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintMarginEnd="16dp"
+        app:layout_constraintMarginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!-- Footer -->
+    <TextView
+        android:id="@+id/logoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@string/app_name"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        app:layout_constraintMarginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/logo2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/footer"
+        android:layout_width="411dp"
+        android:layout_height="104dp"
+        android:background="@color/teal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView android:id="@+id/homeButton" android:layout_width="47dp" android:layout_height="48dp" android:src="@drawable/today" />
+            <TextView android:id="@+id/homeText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nav_today" android:textColor="@color/white" android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView android:id="@+id/scheduleButton" android:layout_width="47dp" android:layout_height="48dp" android:src="@drawable/calender" />
+            <TextView android:id="@+id/scheduleText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nav_schedule" android:textColor="@color/white" android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView android:id="@+id/searchButton" android:layout_width="47dp" android:layout_height="48dp" android:src="@drawable/search" />
+            <TextView android:id="@+id/searchText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nav_search" android:textColor="@color/white" android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView android:id="@+id/settingsButton" android:layout_width="47dp" android:layout_height="48dp" android:src="@drawable/settings" />
+            <TextView android:id="@+id/settingsText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nav_settings" android:textColor="@color/white" android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!---
+        Search
+        Possible help:
+        https://www.geeksforgeeks.org/searchview-in-android-with-kotlin/
+    -->
+    <EditText
+        android:id="@+id/searchBar"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/searchBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/searchEvents"
+        app:layout_constraintTop_toBottomOf="@+id/space" />
+
+    <SearchView
+        android:id="@+id/searchEvents"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/searchBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/searchBar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchResults"
+        android:layout_width="409dp"
+        android:layout_height="477dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchBar" />
+
+    <!--This makes the content scrollable-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
