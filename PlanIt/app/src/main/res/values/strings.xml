@@ -1,6 +1,4 @@
 <resources>
-
-
     <!---Home Screen-->
     <string name="app_name">PlanIt</string>
     <string name="Date">February 27</string>
@@ -34,17 +32,5 @@
 
     <string name="submit">Create</string>
     <string name="submitEdit">Edit</string>
-
-    <!---Settings Screen-->
-    <string name="settingsTitle">Settings</string>
-    <string name="themeTitle">Theme</string>
-    <string name="themeToggle">Dark Mode</string>
-    <string name="accentTitle">Accent Color</string>
-    <string name="colorPickerButton">Pick Color</string>
-    <string name="styleTitle">Calendar Style</string>
-    <string name="categoryPickerTitle">Category Colors</string>
-
-    <!---Search Screen-->
-    <string name="searchBar">Search...</string>
 
 </resources>
