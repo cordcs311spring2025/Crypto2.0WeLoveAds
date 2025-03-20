@@ -35,7 +35,7 @@
         app:layout_constraintMarginStart="8dp" />
 
     <TextView
-        android:id="@+id/addEvent"
+        android:id="@+id/addevent"
         android:layout_width="70dp"
         android:layout_height="78dp"
         android:text="@string/nav_add"

@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/addEvent"
+    android:id="@+id/settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -13,47 +13,34 @@
     <Space
         android:id="@+id/space"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="@string/headerHeight"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/addEvent5"
-        android:layout_width="70dp"
-        android:layout_height="78dp"
-        android:text="@string/nav_add"
-        android:textColor="@color/teal"
-        android:textSize="80sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginEnd="16dp"
-        app:layout_constraintMarginTop="16dp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="@string/logoWidth"
         android:layout_height="@string/logoHeight"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@string/logoTopMargin"
         android:src="@drawable/icon"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:tintMode="src_in"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        app:tint="@color/accent" />
 
     <TextView
         android:id="@+id/logoTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@string/logoHeight"
+        android:layout_marginTop="@string/logoTopMargin"
+        android:gravity="center"
         android:text="@string/app_name"
         android:textColor="@android:color/black"
         android:textSize="@string/logoFontSize"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintMarginStart="8dp"
         app:layout_constraintStart_toEndOf="@id/logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <!-- Footer -->
@@ -61,14 +48,17 @@
     <View
         android:id="@+id/footer"
         android:layout_width="match_parent"
-        android:layout_height="104dp"
-        android:background="@color/teal"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_height="@string/footerHeight"
+        android:background="@color/accent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:baselineAligned="false"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,8 +74,8 @@
 
             <ImageView
                 android:id="@+id/homeButton"
-                android:layout_width="47dp"
-                android:layout_height="48dp"
+                android:layout_width="@string/footerIconWidth"
+                android:layout_height="@string/footerIconHeight"
                 android:src="@drawable/today" />
 
             <TextView
@@ -94,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nav_today"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="@string/footerFontSize" />
         </LinearLayout>
 
         <LinearLayout
@@ -106,8 +96,8 @@
 
             <ImageView
                 android:id="@+id/scheduleButton"
-                android:layout_width="47dp"
-                android:layout_height="48dp"
+                android:layout_width="@string/footerIconWidth"
+                android:layout_height="@string/footerIconHeight"
                 android:src="@drawable/calender" />
 
             <TextView
@@ -116,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nav_schedule"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="@string/footerFontSize" />
         </LinearLayout>
 
         <LinearLayout
@@ -128,8 +118,8 @@
 
             <ImageView
                 android:id="@+id/searchButton"
-                android:layout_width="47dp"
-                android:layout_height="48dp"
+                android:layout_width="@string/footerIconWidth"
+                android:layout_height="@string/footerIconHeight"
                 android:src="@drawable/search" />
 
             <TextView
@@ -138,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nav_search"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="@string/footerFontSize" />
         </LinearLayout>
 
         <LinearLayout
@@ -150,8 +140,8 @@
 
             <ImageView
                 android:id="@+id/settingsButton"
-                android:layout_width="47dp"
-                android:layout_height="48dp"
+                android:layout_width="@string/footerIconWidth"
+                android:layout_height="@string/footerIconHeight"
                 android:src="@drawable/settings" />
 
             <TextView
@@ -160,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nav_settings"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="@string/footerFontSize" />
         </LinearLayout>
     </LinearLayout>
 
@@ -180,7 +170,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
@@ -188,9 +178,10 @@
                 android:id="@+id/themeTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@string/marginSmall"
                 android:text="@string/themeTitle"
                 android:textAlignment="center"
-                android:textSize="@string/titleFontSize"
+                android:textSize="@string/mediumFontSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
@@ -210,9 +201,10 @@
                 android:id="@+id/styleTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@string/marginSmall"
                 android:text="@string/styleTitle"
                 android:textAlignment="center"
-                android:textSize="@string/titleFontSize" />
+                android:textSize="@string/mediumFontSize" />
 
             <Spinner
                 android:id="@+id/stylePicker"
@@ -226,9 +218,10 @@
                 android:id="@+id/accentTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@string/marginSmall"
                 android:text="@string/accentTitle"
                 android:textAlignment="center"
-                android:textSize="@string/titleFontSize"
+                android:textSize="@string/mediumFontSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/themeToggle" />
@@ -237,7 +230,7 @@
                 android:id="@+id/accentPicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/teal"
+                android:backgroundTint="@color/accent"
                 android:text="@string/colorPickerButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -247,9 +240,10 @@
                 android:id="@+id/categoryColorTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@string/marginSmall"
                 android:text="@string/categoryPickerTitle"
                 android:textAlignment="center"
-                android:textSize="@string/titleFontSize"
+                android:textSize="@string/mediumFontSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accentPicker2" />
@@ -263,7 +257,7 @@
                 android:id="@+id/categoryColorPicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/teal"
+                android:backgroundTint="@color/accent"
                 android:text="@string/colorPickerButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -278,9 +272,22 @@
         android:layout_height="wrap_content"
         android:text="@string/settingsTitle"
         android:textAlignment="center"
-        android:textSize="34sp"
+        android:textSize="@string/largeFontSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/space" />
+
+    <ImageButton
+        android:id="@+id/addEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="@string/logoHeight"
+        android:layout_marginTop="@string/logoTopMargin"
+        android:layout_marginEnd="0dp"
+        android:background=""
+        android:contentDescription="@string/add_event"
+        app:layout_constraintEnd_toEndOf="@+id/space"
+        app:layout_constraintTop_toTopOf="@+id/space"
+        app:srcCompat="@drawable/add_event"
+        app:tint="@color/accent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class AddActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +15,7 @@ class AddActivity : AppCompatActivity() {
 
 
         // Add Event button redirection
-        findViewById<View>(R.id.addEvent).setOnClickListener {
+        findViewById<View>(R.id.addevent).setOnClickListener {
 
         }
 

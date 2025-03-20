@@ -4,11 +4,23 @@
     General Attributes
         These will be helpful for unifying the graphic design
     -->
-    <string name="titleFontSize">22sp</string>
+    <string name="mediumFontSize">22sp</string>
+    <string name="largeFontSize">34sp</string>
+    <string name="marginTiny">1dp</string>
+    <string name="marginSmall">10dp</string>
+
     <!---Header Attributes-->
     <string name="logoFontSize">24sp</string>
     <string name="logoWidth">83dp</string>
     <string name="logoHeight">67dp</string>
+    <string name="logoTopMargin">24dp</string>
+    <string name="headerHeight">100dp</string>
+
+    <!--Footer attributes-->
+    <string name="footerFontSize">15sp</string>
+    <string name="footerIconWidth">47sp</string>
+    <string name="footerIconHeight">48dp</string>
+    <string name="footerHeight">104dp</string>
 
 
 </resources>

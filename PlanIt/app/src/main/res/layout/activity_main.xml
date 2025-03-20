@@ -13,6 +13,7 @@
         android:layout_width="83dp"
         android:layout_height="67dp"
         android:src="@drawable/icon"
+        android:tintMode="src_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -32,7 +33,7 @@
         app:layout_constraintMarginStart="8dp" />
 
     <TextView
-        android:id="@+id/addEvent"
+        android:id="@+id/addevent"
         android:layout_width="70dp"
         android:layout_height="78dp"
         android:text="@string/nav_add"
@@ -149,12 +150,10 @@
         android:text="@string/DayOfWeek"
         android:textColor="@color/teal"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.235" />
+        app:layout_constraintTop_toBottomOf="@+id/currentDate" />
 
     <!--events-->
     <androidx.cardview.widget.CardView
