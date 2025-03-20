@@ -13,16 +13,16 @@
     <Space
         android:id="@+id/space"
         android:layout_width="0dp"
-        android:layout_height="@string/headerHeight"
+        android:layout_height="@dimen/headerHeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="@string/logoWidth"
-        android:layout_height="@string/logoHeight"
-        android:layout_marginTop="@string/logoTopMargin"
+        android:layout_width="@dimen/logoWidth"
+        android:layout_height="@dimen/logoHeight"
+        android:layout_marginTop="@dimen/logoTopMargin"
         android:src="@drawable/icon"
         android:tintMode="src_in"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,12 +32,12 @@
     <TextView
         android:id="@+id/logoTitle"
         android:layout_width="wrap_content"
-        android:layout_height="@string/logoHeight"
-        android:layout_marginTop="@string/logoTopMargin"
+        android:layout_height="@dimen/logoHeight"
+        android:layout_marginTop="@dimen/logoTopMargin"
         android:gravity="center"
         android:text="@string/app_name"
         android:textColor="@android:color/black"
-        android:textSize="@string/logoFontSize"
+        android:textSize="@dimen/logoFontSize"
         app:layout_constraintMarginStart="8dp"
         app:layout_constraintStart_toEndOf="@id/logo"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +48,7 @@
     <View
         android:id="@+id/footer"
         android:layout_width="match_parent"
-        android:layout_height="@string/footerHeight"
+        android:layout_height="@dimen/footerHeight"
         android:background="@color/accent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,8 +74,8 @@
 
             <ImageView
                 android:id="@+id/homeButton"
-                android:layout_width="@string/footerIconWidth"
-                android:layout_height="@string/footerIconHeight"
+                android:layout_width="@dimen/footerIconWidth"
+                android:layout_height="@dimen/footerIconHeight"
                 android:src="@drawable/today" />
 
             <TextView
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nav_today"
                 android:textColor="@color/white"
-                android:textSize="@string/footerFontSize" />
+                android:textSize="@dimen/footerFontSize" />
         </LinearLayout>
 
         <LinearLayout
@@ -96,8 +96,8 @@
 
             <ImageView
                 android:id="@+id/scheduleButton"
-                android:layout_width="@string/footerIconWidth"
-                android:layout_height="@string/footerIconHeight"
+                android:layout_width="@dimen/footerIconWidth"
+                android:layout_height="@dimen/footerIconHeight"
                 android:src="@drawable/calender" />
 
             <TextView
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nav_schedule"
                 android:textColor="@color/white"
-                android:textSize="@string/footerFontSize" />
+                android:textSize="@dimen/footerFontSize" />
         </LinearLayout>
 
         <LinearLayout
@@ -118,8 +118,8 @@
 
             <ImageView
                 android:id="@+id/searchButton"
-                android:layout_width="@string/footerIconWidth"
-                android:layout_height="@string/footerIconHeight"
+                android:layout_width="@dimen/footerIconWidth"
+                android:layout_height="@dimen/footerIconHeight"
                 android:src="@drawable/search" />
 
             <TextView
@@ -128,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nav_search"
                 android:textColor="@color/white"
-                android:textSize="@string/footerFontSize" />
+                android:textSize="@dimen/footerFontSize" />
         </LinearLayout>
 
         <LinearLayout
@@ -140,8 +140,8 @@
 
             <ImageView
                 android:id="@+id/settingsButton"
-                android:layout_width="@string/footerIconWidth"
-                android:layout_height="@string/footerIconHeight"
+                android:layout_width="@dimen/footerIconWidth"
+                android:layout_height="@dimen/footerIconHeight"
                 android:src="@drawable/settings" />
 
             <TextView
@@ -150,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nav_settings"
                 android:textColor="@color/white"
-                android:textSize="@string/footerFontSize" />
+                android:textSize="@dimen/footerFontSize" />
         </LinearLayout>
     </LinearLayout>
 
@@ -178,10 +178,10 @@
                 android:id="@+id/themeTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@string/marginSmall"
+                android:layout_marginTop="@dimen/marginSmall"
                 android:text="@string/themeTitle"
                 android:textAlignment="center"
-                android:textSize="@string/mediumFontSize"
+                android:textSize="@dimen/mediumFontSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
@@ -201,10 +201,10 @@
                 android:id="@+id/styleTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@string/marginSmall"
+                android:layout_marginTop="@dimen/marginSmall"
                 android:text="@string/styleTitle"
                 android:textAlignment="center"
-                android:textSize="@string/mediumFontSize" />
+                android:textSize="@dimen/mediumFontSize" />
 
             <Spinner
                 android:id="@+id/stylePicker"
@@ -218,10 +218,10 @@
                 android:id="@+id/accentTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@string/marginSmall"
+                android:layout_marginTop="@dimen/marginSmall"
                 android:text="@string/accentTitle"
                 android:textAlignment="center"
-                android:textSize="@string/mediumFontSize"
+                android:textSize="@dimen/mediumFontSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/themeToggle" />
@@ -240,10 +240,10 @@
                 android:id="@+id/categoryColorTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@string/marginSmall"
+                android:layout_marginTop="@dimen/marginSmall"
                 android:text="@string/categoryPickerTitle"
                 android:textAlignment="center"
-                android:textSize="@string/mediumFontSize"
+                android:textSize="@dimen/mediumFontSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accentPicker2" />
@@ -272,7 +272,7 @@
         android:layout_height="wrap_content"
         android:text="@string/settingsTitle"
         android:textAlignment="center"
-        android:textSize="@string/largeFontSize"
+        android:textSize="@dimen/largeFontSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/space" />
@@ -280,8 +280,8 @@
     <ImageButton
         android:id="@+id/addEvent"
         android:layout_width="wrap_content"
-        android:layout_height="@string/logoHeight"
-        android:layout_marginTop="@string/logoTopMargin"
+        android:layout_height="@dimen/logoHeight"
+        android:layout_marginTop="@dimen/logoTopMargin"
         android:layout_marginEnd="0dp"
         android:background=""
         android:contentDescription="@string/add_event"
