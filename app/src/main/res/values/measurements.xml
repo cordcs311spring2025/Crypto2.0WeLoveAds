@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!---
+    General Attributes
+        These will be helpful for unifying the graphic design
+    -->
+    <dimen name="mediumFontSize">22sp</dimen>
+    <dimen name="largeFontSize">34sp</dimen>
+    <dimen name="marginTiny">1dp</dimen>
+    <dimen name="marginSmall">10dp</dimen>
+
+    <!---Header Attributes-->
+    <dimen name="logoFontSize">24sp</dimen>
+    <dimen name="logoWidth">83dp</dimen>
+    <dimen name="logoHeight">67dp</dimen>
+    <dimen name="logoTopMargin">24dp</dimen>
+    <dimen name="headerHeight">100dp</dimen>
+
+    <!--Footer attributes-->
+    <dimen name="footerFontSize">15sp</dimen>
+    <dimen name="footerIconWidth">47sp</dimen>
+    <dimen name="footerIconHeight">48dp</dimen>
+    <dimen name="footerHeight">104dp</dimen>
+
+
+</resources>
