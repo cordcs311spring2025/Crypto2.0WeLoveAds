@@ -14,7 +14,6 @@ class CalenderActivity : AppCompatActivity() {
         setContentView(R.layout.calender_screen)
 
 
-
         findViewById<View>(R.id.addEvent).setOnClickListener {
             val intent = Intent(this, AddActivity::class.java)
             startActivity(intent)

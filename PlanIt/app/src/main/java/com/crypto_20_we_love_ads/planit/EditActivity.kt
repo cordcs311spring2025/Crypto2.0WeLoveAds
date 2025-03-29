@@ -12,15 +12,13 @@ class EditActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.edit_screen)
 
-
-
-        // Add Event button redirection
+        // Add Event button redirection (Change to the actual event-adding activity)
         findViewById<View>(R.id.addEvent).setOnClickListener {
-            val intent = Intent(this, AddActivity::class.java)
+            val intent = Intent(this, AddActivity::class.java) // Update if needed
             startActivity(intent)
         }
 
-        // Home Button stays on the same page (no action needed)
+        // Home Button redirection
         findViewById<View>(R.id.homeButton).setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -42,6 +40,11 @@ class EditActivity : AppCompatActivity() {
         findViewById<View>(R.id.settingsButton).setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
+        }
+
+        // Back Button functionality (Fixed missing findViewById)
+        findViewById<View>(R.id.backButton).setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 }

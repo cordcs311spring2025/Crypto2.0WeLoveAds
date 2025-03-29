@@ -13,7 +13,6 @@ class SearchActivity : AppCompatActivity() {
         setContentView(R.layout.search_screen)
 
 
-
         // Add Event button redirection
         findViewById<View>(R.id.addEvent).setOnClickListener {
             val intent = Intent(this, AddActivity::class.java)
