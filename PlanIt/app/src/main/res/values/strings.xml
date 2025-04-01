@@ -35,8 +35,9 @@
     <string name="submit">Create</string>
     <string name="submitEdit">Edit</string>
 
+
+
     <!---Settings Screen-->
-    <string name="settingsTitle">Settings</string>
     <string name="themeTitle">Theme</string>
     <string name="themeToggle">Dark Mode</string>
     <string name="accentTitle">Accent Color</string>

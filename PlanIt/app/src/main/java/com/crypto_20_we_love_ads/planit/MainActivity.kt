@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Add Event button redirection
-        findViewById<View>(R.id.addevent).setOnClickListener {
+        findViewById<View>(R.id.addEvent).setOnClickListener {
             val intent = Intent(this, AddActivity::class.java)
             startActivity(intent)
         }
