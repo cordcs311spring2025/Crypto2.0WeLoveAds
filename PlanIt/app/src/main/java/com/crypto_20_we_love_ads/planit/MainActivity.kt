@@ -1,9 +1,11 @@
 package com.crypto_20_we_love_ads.planit
 
 import android.content.Intent
+import android.net.Uri  // Import Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast  // Import Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -80,8 +82,27 @@ class MainActivity : AppCompatActivity() {
             changeDateByDay(1)
         }
 
+        // Location ImageView click listener
+        findViewById<View>(R.id.currentEventLocation).setOnClickListener {
+            openLocationInMaps() // Call openLocationInMaps when the ImageView is clicked
+        }
+
         // Call method to display events for today
         displayEventsForCurrentDate()
+    }
+
+    // Function to open the location in Google Maps
+    private fun openLocationInMaps() {
+        val location = currentLocationText.text.toString()
+        if (location.isNotEmpty()) {
+            val geoUri = "geo:0,0?q=$location"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(geoUri))  // Use Uri.parse() for geo URI
+            intent.setPackage("com.google.android.apps.maps")
+            startActivity(intent)
+        } else {
+            // Handle case where location is empty
+            Toast.makeText(this, "Location not available", Toast.LENGTH_SHORT).show()  // Display a toast message
+        }
     }
 
     // Function to format the selected date (Month Day, e.g., "April 2")
@@ -124,7 +145,7 @@ class MainActivity : AppCompatActivity() {
     // Function to query and display event details for a specific date
     private fun displayEvents(date: String, dayOfWeek: String) {
         val db = dbHelper.readableDatabase
-        val cursor = dbHelper.readableDatabase.rawQuery("SELECT * FROM Calendar WHERE startDate = ?", arrayOf(date))
+        val cursor = db.rawQuery("SELECT * FROM Calendar WHERE startDate = ?", arrayOf(date))
 
         if (cursor.moveToFirst()) {
             try {
@@ -136,8 +157,16 @@ class MainActivity : AppCompatActivity() {
                 val eventTime = cursor.getString(eventTimeIndex)
                 val location = cursor.getString(locationIndex)
 
+                // Convert the date string from yyyy-MM-dd to a Date object for formatting
+                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                val parsedDate = dateFormat.parse(date)
+
+                // Format the date to "MMMM d" (e.g., "April 8")
+                val displayDateFormat = SimpleDateFormat("MMMM d", Locale.getDefault())
+                val formattedDate = parsedDate?.let { displayDateFormat.format(it) } ?: date
+
                 // Update the UI with the event data
-                currentDate.text = date
+                currentDate.text = formattedDate
                 currentDOW.text = dayOfWeek  // Full day of the week name (e.g., Monday)
                 eventName.text = title
                 currentEventTime.text = eventTime
@@ -156,4 +185,5 @@ class MainActivity : AppCompatActivity() {
 
         cursor.close()
     }
+
 }
