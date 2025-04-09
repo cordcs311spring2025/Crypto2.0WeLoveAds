@@ -32,6 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/accent" />
 
+    <!--Add event button-->
     <TextView
         android:id="@+id/logoTitle"
         android:layout_width="wrap_content"
@@ -39,13 +40,11 @@
         android:layout_marginTop="@dimen/logoTopMargin"
         android:gravity="center"
         android:text="@string/app_name"
-        android:textColor="@android:color/black"
         android:textSize="@dimen/logoFontSize"
 
         app:layout_constraintStart_toEndOf="@id/logo"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--Add event button-->
     <ImageButton
         android:id="@+id/addEvent"
         android:layout_width="wrap_content"
@@ -204,7 +203,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
 
-            <Switch
+            <!--they had a geeks for geeks page about this-->
+            <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/themeToggle"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
@@ -235,7 +235,7 @@
             <TextView
                 android:id="@+id/accentTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginTop="@dimen/marginSmall"
                 android:text="@string/accentTitle"
                 android:textAlignment="center"
