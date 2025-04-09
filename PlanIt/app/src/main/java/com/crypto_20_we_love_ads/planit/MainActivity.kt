@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var currentEventTime: TextView
     private lateinit var currentLocationText: TextView
     private lateinit var dbHelper: DatabaseHelper
+    private lateinit var eventContainer: View
+
 
     private var currentCalendar: Calendar = Calendar.getInstance() // To keep track of the current date
 
@@ -32,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
 
         currentDate = findViewById(R.id.currentDate)
+        eventContainer = findViewById(R.id.eventContainer)
         currentDOW = findViewById(R.id.currentDOW)
         eventName = findViewById(R.id.currentEventName)  // TextView for event name
         currentEventTime = findViewById(R.id.currentEventTime)  // TextView for event time
@@ -76,10 +79,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        findViewById<View>(R.id.currentEventName).setOnClickListener {
+        eventContainer.setOnClickListener {
             val intent = Intent(this, EditActivity::class.java)
             startActivity(intent)
         }
+
 
         // Navigation buttons for previous and next day
         findViewById<View>(R.id.prevDay).setOnClickListener {
