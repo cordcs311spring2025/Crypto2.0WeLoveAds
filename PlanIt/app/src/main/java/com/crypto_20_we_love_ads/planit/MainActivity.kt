@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        eventContainer.setOnClickListener {
+        findViewById<View>(R.id.currentEventName).setOnClickListener {
             val intent = Intent(this, EditActivity::class.java)
             startActivity(intent)
         }
