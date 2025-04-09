@@ -7,6 +7,7 @@
     <layouts>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
         <config>
+          <night>night</night>
           <theme>@style/Theme.PlanIt</theme>
         </config>
       </layout>
@@ -17,21 +18,25 @@
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/calender_screen.xml">
         <config>
+          <night>night</night>
           <theme>@style/Theme.PlanIt</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/edit_screen.xml">
         <config>
+          <night>night</night>
           <theme>@style/Theme.PlanIt</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/search_screen.xml">
         <config>
+          <night>night</night>
           <theme>@style/Theme.PlanIt</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/settings_screen.xml">
         <config>
+          <night>night</night>
           <theme>@style/Theme.PlanIt</theme>
         </config>
       </layout>
@@ -41,7 +46,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab29a4cf-7f2f-4aec-addf-df30de29e678" name="Changes" comment="" />
+    <list default="true" id="ab29a4cf-7f2f-4aec-addf-df30de29e678" name="Changes" comment="commented out error" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,6 +81,9 @@
       </state>
     </system>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -84,6 +92,7 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2uldZB8ktX72r7t0SNcTuRlZh1L" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -98,8 +107,11 @@
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/chery/AndroidStudioProjects",
-    "settings.editor.selected.configurable": "experimental"
+    "last_opened_file_path": "C:/Users/chery/Desktop/PlanIt",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
   <component name="RunManager">
@@ -185,19 +197,44 @@
       <option name="presentableId" value="Default" />
       <updated>1742827150329</updated>
     </task>
+    <task id="LOCAL-00001" summary="Idk what this is but I'm trying it out">
+      <option name="closed" value="true" />
+      <created>1744180802437</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744180802437</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commented out error">
+      <option name="closed" value="true" />
+      <created>1744181143147</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744181143147</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="Idk what this is but I'm trying it out" />
+    <MESSAGE value="commented out error" />
+    <option name="LAST_COMMIT_MESSAGE" value="commented out error" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.crypto_20_we_love_ads.planit">
           <value>
-            <CheckInfo lastCheckTimestamp="1743258641728" />
+            <CheckInfo lastCheckTimestamp="1744172587289" />
           </value>
         </entry>
         <entry key="com.crypto_20_we_love_ads.planit.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1743258641728" />
+            <CheckInfo lastCheckTimestamp="1744172587289" />
           </value>
         </entry>
       </map>

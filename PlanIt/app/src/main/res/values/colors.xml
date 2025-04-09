@@ -5,5 +5,20 @@
     <color name="teal">#48927d</color>
     <color name="green">#00bf36</color>
     <color name="gray">#d9d9d9</color>
+    <color name="transparent">#00000000</color>
+
+
+    <!--Theme Colors-->
+    <color name="accent">@color/teal</color>
+    <color name="theme">@color/gray</color>
+
+    <!--Alt Color-->
+    <color name="orange">#DC8052</color>
+    <color name="yellow">#FCC419</color>
+    <color name="blue">#5C7CFA</color>
+    <color name="red">#FA5252</color>
+    <color name="pink">#FDA9E5</color>
+
+
 
 </resources>

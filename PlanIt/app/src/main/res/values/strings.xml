@@ -1,12 +1,12 @@
 <resources>
-
-
     <!---Home Screen-->
     <string name="app_name">PlanIt</string>
+    <string name="add_event">add event</string>
+
     <string name="Date">February 27</string>
     <string name="DayOfWeek">Thursday</string>
     <string name="event_1">• blah blah</string>
-    <string name="location_1"> @Conco </string>
+    <string name="location_1"> /@Conco </string>
     <string name="time_1">2:45</string>
 
     <string name="nav_today">Today</string>
@@ -36,7 +36,6 @@
     <string name="submitEdit">Edit</string>
 
     <!---Settings Screen-->
-    <string name="settingsTitle">Settings</string>
     <string name="themeTitle">Theme</string>
     <string name="themeToggle">Dark Mode</string>
     <string name="accentTitle">Accent Color</string>
