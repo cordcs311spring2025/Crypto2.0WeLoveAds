@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -52,7 +51,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp" />
-
 
 
     <!-- Cheryn Footer -->
@@ -170,138 +168,331 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!--This makes the content scrollable-->
+
+    <!--This makes the content scrollable
+    START OF CONTENT-->
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textColor="@color/black"
+
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-    <!--Add Info-->
-
+            android:padding="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent">
+            <!--Add Info-->
             <TextView
+                android:id="@+id/Title"
                 android:layout_width="200dp"
-                android:layout_height="46dp"
+                android:layout_height="50dp"
                 android:text="@string/addTitle"
                 android:textColor="@color/black"
                 android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.127"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.189" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Title" />
 
             <TextView
+                android:id="@+id/Catagories"
                 android:layout_width="200dp"
                 android:layout_height="46dp"
-                android:text="@string/addCategory"
+                android:text="Category"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.156"
+                android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.322" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/catMenu"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="Select an Option"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Catagories">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoTVCat"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:focusable="false"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+<!--
+            <EditText
+                android:id="@+id/editTextCat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Catagories" />
+-->
             <TextView
+                android:id="@+id/Start"
                 android:layout_width="200dp"
                 android:layout_height="46dp"
                 android:text="@string/addStart"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.137"
+                android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.445" />
+                app:layout_constraintTop_toBottomOf="@+id/catMenu" />
+
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Date"
+                android:inputType="date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Start" />
+
+            <EditText
+                android:id="@+id/editTextTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Time"
+                android:inputType="time"
+                app:layout_constraintStart_toEndOf="@+id/editTextDate"
+                app:layout_constraintTop_toBottomOf="@+id/Start" />
 
             <TextView
+                android:id="@+id/End"
                 android:layout_width="200dp"
                 android:layout_height="46dp"
                 android:text="@string/addEnd"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.156"
+                android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.564" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+
+            <EditText
+                android:id="@+id/editTextDateEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Date"
+                android:inputType="date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/End" />
+
+            <EditText
+                android:id="@+id/editTextTimeEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Time"
+                android:inputType="time"
+                app:layout_constraintStart_toEndOf="@+id/editTextDateEnd"
+                app:layout_constraintTop_toBottomOf="@+id/End" />
 
             <TextView
+                android:id="@+id/Reminder"
                 android:layout_width="200dp"
                 android:layout_height="46dp"
                 android:text="@string/addRemind"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.137"
+                android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.672" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextTimeEnd" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/remMenu"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="Select an Option"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Reminder">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoTVRem"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:focusable="false"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/remMenu2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="Select an Option"
+                app:layout_constraintStart_toEndOf="@id/remMenu"
+                app:layout_constraintTop_toBottomOf="@+id/Reminder"
+                android:visibility="gone">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoTVRem2"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:focusable="false"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+<!--
+            <EditText
+                android:id="@+id/editTextRem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="time"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Reminder" />
+-->
+
 
             <TextView
+                android:id="@+id/Import"
                 android:layout_width="200dp"
                 android:layout_height="46dp"
                 android:text="@string/addImportance"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.127"
+                android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.804" />
+                app:layout_constraintTop_toBottomOf="@+id/remMenu" />
 
-            <!--This is the stuff from add_screen_2 i havent positioned anything yet but it should be scrollable-->
+            <!--Old importance switch
+    Being replaced by a dropdown menu
+            <Switch
+                android:id="@+id/switchImp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Import" />
+                -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/DDmenu"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="Select an Option"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Import">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:focusable="false"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:id="@+id/Recuring"
                 android:layout_width="200dp"
                 android:layout_height="46dp"
                 android:text="@string/addReccuring"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.132"
+                android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.221" />
+                app:layout_constraintTop_toBottomOf="@+id/DDmenu" />
+
+            <Switch
+                android:id="@+id/switchRec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/tvRecNo"
+                app:layout_constraintTop_toBottomOf="@+id/Recuring"
+                />
+
 
             <TextView
+                android:id="@+id/tvRecNo"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:text="No"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Recuring" />
+
+            <TextView
+                android:id="@+id/tvRecYes"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:text="Yes"
+                android:textSize="10dp"
+                app:layout_constraintStart_toEndOf="@+id/switchRec"
+                app:layout_constraintTop_toBottomOf="@+id/Recuring" />
+
+            <Button
+                android:id="@+id/btnDaySel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/green"
+                android:ems="10"
+                android:inputType=""
+                android:text="M,T,W,TH,F"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchRec" />
+
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="200dp"
                 android:layout_height="46dp"
                 android:text="@string/addLocation"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.137"
+                android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.383" />
+                app:layout_constraintTop_toBottomOf="@+id/btnDaySel" />
+
+            <EditText
+                android:id="@+id/editTextText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <TextView
-                android:layout_width="200dp"
+                android:id="@+id/Descr"
+                android:layout_width="wrap_content"
                 android:layout_height="46dp"
                 android:text="@string/addDesc"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.137"
+                android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.499" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+
+            <EditText
+                android:id="@+id/editTextBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:minLines="3"
+                android:scrollbars="vertical"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Descr" />
 
             <Button
                 android:id="@+id/createButton"
@@ -312,11 +503,10 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.096"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.751" />
+                app:layout_constraintStart_toEndOf="@+id/editTextBox"
+                app:layout_constraintTop_toBottomOf="@+id/Descr" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
