@@ -211,20 +211,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.189" />
 
+    <!-- Events -->
+
     <TextView
-        android:background="@android:color/transparent"
         android:id="@+id/currentDOW"
         android:layout_width="191dp"
         android:layout_height="32dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
         android:text="@string/DayOfWeek"
         android:textColor="@color/teal"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentDate" />
 
-    <!-- Events -->
     <androidx.cardview.widget.CardView
         android:id="@+id/eventContainer"
         android:layout_width="wrap_content"
