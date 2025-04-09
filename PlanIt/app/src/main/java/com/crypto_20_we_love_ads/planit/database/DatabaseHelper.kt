@@ -47,10 +47,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         category: String,
         startDate: String,
         endDate: String,
-        eventTime: String,
+        startTime: String,
+        endTime: String,
         description: String,
         dayOfWeek: String,
-        reminder: Boolean,
+        reminder1: String,
+        reminder2: String,
         importance: Int,
         recurring: Boolean,
         location: String
@@ -61,10 +63,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             put("category", category)
             put("startDate", startDate)
             put("endDate", endDate)
-            put("eventTime", eventTime)
+            put("startTime", startTime)
+            put("endTime", endTime)
             put("description", description)
             put("dayOfWeek", dayOfWeek)
-            put("reminder", if (reminder) 1 else 0) // 1 for true, 0 for false
+            put("reminder1", reminder1) //Decided to store reminders as strings if (reminder) 1 else 0) // 1 for true, 0 for false
+            put("reminder2", reminder2)
             put("importance", importance)
             put("recurring", if (recurring) 1 else 0) // 1 for true, 0 for false
             put("location", location)
@@ -86,9 +90,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 category TEXT,
                 startDate DATE,
                 endDate DATE,
-                eventTime TEXT,
+                startTime TEXT,
+                endTime TEXT,
                 dayOfWeek TEXT,
-                reminder INTEGER, 
+                /*Changed from integer to TEXT based upon the selection method and added the second reminder for location based reminders*/
+                reminder1 TEXT,
+                reminder2 TEXT,
                 importance INTEGER,
                 recurring INTEGER,
                 location TEXT,

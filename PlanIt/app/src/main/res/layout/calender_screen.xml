@@ -177,7 +177,7 @@
         android:layout_height="350dp"
         android:layout_marginTop="28dp"
         android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/tvLocation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
@@ -186,7 +186,7 @@
     <!-- Occasions -->
     <TextView
         android:background="@android:color/transparent"
-        android:id="@+id/textView"
+        android:id="@+id/tvLocation"
         android:layout_width="146dp"
         android:layout_height="45dp"
         android:text="@string/occassion"
