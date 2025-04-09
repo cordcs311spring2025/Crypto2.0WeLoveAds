@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        // Initialize UI elements
+
         currentDate = findViewById(R.id.currentDate)
         currentDOW = findViewById(R.id.currentDOW)
         eventName = findViewById(R.id.currentEventName)  // TextView for event name
@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddActivity::class.java)
             startActivity(intent)
         }
+
+
 
         // Home Button stays on the same page (no action needed)
         findViewById<View>(R.id.homeButton).setOnClickListener {
@@ -71,6 +73,11 @@ class MainActivity : AppCompatActivity() {
         // Settings Button redirection
         findViewById<View>(R.id.settingsButton).setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
+
+        findViewById<View>(R.id.currentEventName).setOnClickListener {
+            val intent = Intent(this, EditActivity::class.java)
             startActivity(intent)
         }
 
@@ -185,5 +192,4 @@ class MainActivity : AppCompatActivity() {
 
         cursor.close()
     }
-
 }
