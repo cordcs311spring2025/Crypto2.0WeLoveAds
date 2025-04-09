@@ -234,17 +234,17 @@
                     android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
-<!--
-            <EditText
-                android:id="@+id/editTextCat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                android:text=""
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Catagories" />
--->
+            <!--
+                        <EditText
+                            android:id="@+id/editTextCat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:text=""
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/Catagories" />
+            -->
             <TextView
                 android:id="@+id/Start"
                 android:layout_width="200dp"
@@ -349,17 +349,17 @@
                     android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
-<!--
-            <EditText
-                android:id="@+id/editTextRem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="time"
+            <!--
+                        <EditText
+                            android:id="@+id/editTextRem"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="time"
 
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Reminder" />
--->
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/Reminder" />
+            -->
 
 
             <TextView
@@ -392,7 +392,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/Import">
 
                 <AutoCompleteTextView
-                    android:id="@+id/autoTV"
+                    android:id="@+id/autoTVImport"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:focusable="false"
@@ -401,7 +401,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/Recuring"
+                android:id="@+id/Recurring"
                 android:layout_width="200dp"
                 android:layout_height="46dp"
                 android:text="@string/addReccuring"
@@ -415,7 +415,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/tvRecNo"
-                app:layout_constraintTop_toBottomOf="@+id/Recuring"
+                app:layout_constraintTop_toBottomOf="@+id/Recurring"
                 />
 
 
@@ -426,7 +426,7 @@
                 android:text="No"
                 android:textSize="10dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Recuring" />
+                app:layout_constraintTop_toBottomOf="@+id/Recurring" />
 
             <TextView
                 android:id="@+id/tvRecYes"
@@ -435,7 +435,7 @@
                 android:text="Yes"
                 android:textSize="10dp"
                 app:layout_constraintStart_toEndOf="@+id/switchRec"
-                app:layout_constraintTop_toBottomOf="@+id/Recuring" />
+                app:layout_constraintTop_toBottomOf="@+id/Recurring" />
 
             <Button
                 android:id="@+id/btnDaySel"
@@ -452,7 +452,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/switchRec" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tvLocation"
                 android:layout_width="200dp"
                 android:layout_height="46dp"
                 android:text="@string/addLocation"
@@ -462,14 +462,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/btnDaySel" />
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/editTextLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
                 android:text=""
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
 
             <TextView
                 android:id="@+id/Descr"
@@ -479,7 +479,7 @@
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextLocation" />
 
             <EditText
                 android:id="@+id/editTextBox"

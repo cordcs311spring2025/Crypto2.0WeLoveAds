@@ -1,13 +1,11 @@
 package com.crypto_20_we_love_ads.planit
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Switch
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -33,7 +31,7 @@ class EditActivity : AppCompatActivity() {
 
         // Importance drop down menu
         val impOptions = arrayOf("Low", "Medium", "High")
-        val impSel = findViewById<AutoCompleteTextView>(R.id.autoTV)
+        val impSel = findViewById<AutoCompleteTextView>(R.id.autoTVImport)
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, impOptions)
         impSel.setAdapter(adapter)
         impSel.setOnClickListener {
