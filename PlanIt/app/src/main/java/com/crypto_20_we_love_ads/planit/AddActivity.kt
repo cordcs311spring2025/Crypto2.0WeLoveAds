@@ -107,6 +107,7 @@ class AddActivity : AppCompatActivity() {
                 }
                 .setNegativeButton("Cancel", null)
                 .show()
+        }
 
 
             // Add Event button redirection (Assuming there's an AddEventActivity)
@@ -143,7 +144,7 @@ class AddActivity : AppCompatActivity() {
             findViewById<View>(R.id.backButton).setOnClickListener {
                 onBackPressedDispatcher.onBackPressed()
             }
-        }
+
 
         //Database stuff here
         val createSubmit = findViewById<Button>(R.id.createButton)
