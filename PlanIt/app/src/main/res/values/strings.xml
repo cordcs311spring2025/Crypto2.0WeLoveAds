@@ -31,7 +31,6 @@
     <string name="addReccuring">Recurring</string>
     <string name="addLocation">Location</string>
     <string name="addDesc">Description (optional)</string>
-
     <string name="submit">Create</string>
     <string name="submitEdit">Edit</string>
 
@@ -42,6 +41,7 @@
     <string name="colorPickerButton">Pick Color</string>
     <string name="styleTitle">Calendar Style</string>
     <string name="categoryPickerTitle">Category Colors</string>
+    <string name="categoryPicker">Enter Category...</string>
 
     <!---Search Screen-->
     <string name="searchBar">Search...</string>

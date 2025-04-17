@@ -11,10 +11,12 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 import kotlin.random.Random
 import android.content.Context
 import android.graphics.Color
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 
 class SettingsActivity : AppCompatActivity() {
-    private lateinit var switch: SwitchMaterial //okay...
-    private lateinit var accentRandomizer: Button
+    private lateinit var switch: SwitchMaterial
+
 
 
 
@@ -64,54 +66,26 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
 
-        // changing the accent color
+        // TODO change accent color setting (from set of colors, not a color picker)
+        // do we want to be able to delete categories? It shouldn't be a problem since events can not have categories...
+        // Category drop down FROM EditActivity.kt
+        val catOptions =
+            arrayOf("None", "Home", "Work", "Sport", "School", "Birthday", "Social", "Event")
+        val catSel = findViewById<AutoCompleteTextView>(R.id.categoryPicker)
+        val catAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, catOptions)
+        catSel.setAdapter(catAdapter)
+        catSel.setOnClickListener {
+            catSel.showDropDown()
+        }
+        // TODO change category color setting
+        // Defunct accent color changer
         // note: I could either import some random github library
         // OR I could generate a random six digit hex number to make the color.
         // one of these has a lot more whimsy
 
-        //I resorted to chatgpt
-        accentRandomizer = findViewById(R.id.accentPicker)
 
-        accentRandomizer.setOnClickListener{
-            // The root view of the activity
 
-            // 1. Generate a random color
-            val randomColor = generateRandomColor()
 
-            // 2. Save the color to SharedPreferences
-            saveColorToPreferences(this, randomColor)
 
-            // 3. Apply the saved color to the root view's background
-            applyColorToView(this, accentRandomizer)
-
-        }
-    }
-
-    fun generateRandomColor(): Int {
-        val red = Random.nextInt(256)
-        val green = Random.nextInt(256)
-        val blue = Random.nextInt(256)
-        return Color.rgb(red, green, blue)
-    }
-
-    // Function to save the color to SharedPreferences
-    private fun saveColorToPreferences(context: Context, color: Int) {
-        val sharedPref = context.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
-        with(sharedPref.edit()) {
-            putInt("random_color", color)
-            apply() // Save changes asynchronously
-        }
-    }
-
-    // Function to retrieve the color from SharedPreferences
-    private fun getColorFromPreferences(context: Context): Int {
-        val sharedPref = context.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
-        return sharedPref.getInt("random_color", Color.BLACK) // Default to black if no value exists
-    }
-
-    // Function to apply the color to a UI element (in this case, the root view)
-    private fun applyColorToView(context: Context, view: View) {
-        val color = getColorFromPreferences(context)
-        view.setBackgroundColor(color)  // Set the background color to the saved color
     }
 }

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#23232323"
+    tools:context=".SettingsActivity">
+
+
+    <!---basics-->
+    <!--Cheryn Header-->
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/headerHeight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/logoWidth"
+        android:layout_height="@dimen/logoHeight"
+        android:layout_marginTop="@dimen/logoTopMargin"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/icon"
+        android:tintMode="src_in"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/accent" />
+
+    <TextView
+        android:id="@+id/logoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/logoHeight"
+        android:layout_marginTop="@dimen/logoTopMargin"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textSize="@dimen/logoFontSize"
+
+        app:layout_constraintStart_toEndOf="@id/logo"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--Add event button-->
+
+
+    <ImageButton
+        android:id="@+id/addEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/logoHeight"
+        android:layout_marginTop="@dimen/logoTopMargin"
+        android:backgroundTint="@color/transparent"
+        android:contentDescription="@string/add_event"
+        app:layout_constraintEnd_toEndOf="@+id/space"
+        app:layout_constraintTop_toTopOf="@+id/space"
+        app:srcCompat="@drawable/add_event"
+        app:tint="@color/accent" />
+    <!-- Cheryn Footer -->
+
+    <View
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/footerHeight"
+        android:background="@color/accent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:baselineAligned="false"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/homeButton"
+                android:layout_width="@dimen/footerIconWidth"
+                android:layout_height="@dimen/footerIconHeight"
+                android:contentDescription="@string/nav_today"
+                android:src="@drawable/today" />
+
+            <TextView
+                android:id="@+id/homeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nav_today"
+                android:textColor="@color/white"
+                android:textSize="@dimen/footerFontSize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/scheduleButton"
+                android:layout_width="@dimen/footerIconWidth"
+                android:layout_height="@dimen/footerIconHeight"
+                android:contentDescription="@string/nav_schedule"
+                android:src="@drawable/calender" />
+
+            <TextView
+                android:id="@+id/scheduleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nav_schedule"
+                android:textColor="@color/white"
+                android:textSize="@dimen/footerFontSize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/searchButton"
+                android:layout_width="@dimen/footerIconWidth"
+                android:layout_height="@dimen/footerIconHeight"
+                android:contentDescription="@string/nav_search"
+                android:src="@drawable/search" />
+
+            <TextView
+                android:id="@+id/searchText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nav_search"
+                android:textColor="@color/white"
+                android:textSize="@dimen/footerFontSize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/settingsButton"
+                android:layout_width="@dimen/footerIconWidth"
+                android:layout_height="@dimen/footerIconHeight"
+                android:contentDescription="@string/nav_settings"
+                android:src="@drawable/settings" />
+
+            <TextView
+                android:id="@+id/settingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nav_settings"
+                android:textColor="@color/white"
+                android:textSize="@dimen/footerFontSize" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!---Body-->
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/themeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginSmall"
+                android:text="@string/themeTitle"
+                android:textAlignment="center"
+                android:textSize="@dimen/mediumFontSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
+
+            <!--they had a geeks for geeks page about this-->
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/themeToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checked="false"
+                android:text="@string/themeToggle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/themeTitle"
+                tools:checked="false" />
+<!-- Omitted for now
+            <TextView
+                android:id="@+id/styleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginSmall"
+                android:text="@string/styleTitle"
+                android:textAlignment="center"
+                android:textSize="@dimen/mediumFontSize" />
+
+            <Spinner
+                android:id="@+id/stylePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/styleTitle" />
+-->
+            <TextView
+                android:id="@+id/accentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginTop="@dimen/marginSmall"
+                android:text="@string/accentTitle"
+                android:textAlignment="center"
+                android:textSize="@dimen/mediumFontSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/themeToggle" />
+
+            <Button
+                android:id="@+id/accentPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/accent"
+                android:text="@string/colorPickerButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accentTitle" />
+
+            <TextView
+                android:id="@+id/categoryColorTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginSmall"
+                android:text="@string/categoryPickerTitle"
+                android:textAlignment="center"
+                android:textSize="@dimen/mediumFontSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accentPicker2" />
+
+            <AutoCompleteTextView
+                android:id="@+id/categoryPicker"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/categoryColorPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/accent"
+                android:text="@string/colorPickerButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="558dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/settingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nav_settings"
+        android:textAlignment="center"
+        android:textSize="@dimen/largeFontSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space" />
+
+    <!--<ImageButton
+        android:id="@+id/addEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/logoHeight"
+        android:layout_marginTop="@dimen/logoTopMargin"
+        android:backgroundTint="@color/transparent"
+        android:contentDescription="@string/add_event"
+        app:layout_constraintEnd_toEndOf="@+id/space"
+        app:layout_constraintTop_toTopOf="@+id/space"
+        app:srcCompat="@drawable/add_event"
+        app:tint="@color/accent" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,6 @@
     android:id="@+id/settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#23232323"
     tools:context=".SettingsActivity">
 
 
@@ -32,7 +31,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/accent" />
 
-    <!--Add event button-->
     <TextView
         android:id="@+id/logoTitle"
         android:layout_width="wrap_content"
@@ -44,6 +42,8 @@
 
         app:layout_constraintStart_toEndOf="@id/logo"
         app:layout_constraintTop_toTopOf="parent" />
+    <!--Add event button-->
+
 
     <ImageButton
         android:id="@+id/addEvent"
@@ -214,7 +214,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/themeTitle"
                 tools:checked="false" />
-
+<!-- Omitted for now
             <TextView
                 android:id="@+id/styleTitle"
                 android:layout_width="wrap_content"
@@ -231,7 +231,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/styleTitle" />
-
+-->
             <TextView
                 android:id="@+id/accentTitle"
                 android:layout_width="wrap_content"
@@ -266,10 +266,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accentPicker2" />
 
-            <Spinner
+            <AutoCompleteTextView
                 android:id="@+id/categoryPicker"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp" />
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/categoryColorPicker"

@@ -42,5 +42,7 @@ class SearchActivity : AppCompatActivity() {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
+
+        // TODO make the search text a query to access the database
     }
 }
