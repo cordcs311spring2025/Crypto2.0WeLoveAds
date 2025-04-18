@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- ✅ Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +18,7 @@
         android:theme="@style/Theme.PlanIt"
         tools:targetApi="31">
 
+        <!-- Launcher Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,12 +28,13 @@
             </intent-filter>
         </activity>
 
-        <!-- Other pages -->
+        <!-- Other Activities -->
         <activity android:name=".AddActivity" android:exported="false" />
         <activity android:name=".CalenderActivity" android:exported="false" />
         <activity android:name=".SearchActivity" android:exported="false" />
         <activity android:name=".SettingsActivity" android:exported="false" />
-        <activity android:name=".EditActivity"  />
+        <activity android:name=".EditActivity" android:exported="false" />
+
     </application>
 
 </manifest>

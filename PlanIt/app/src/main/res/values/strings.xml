@@ -8,6 +8,7 @@
     <string name="event_1">• blah blah</string>
     <string name="location_1"> /@Conco </string>
     <string name="time_1">2:45</string>
+    <string name="importance">!!!</string>
 
     <string name="nav_today">Today</string>
     <string name="nav_schedule">Schedule</string>
@@ -16,7 +17,7 @@
     <string name="nav_add">+</string>
 
     <!---Calender Screen-->
-    <string name="occassion">Occassions</string>
+    <string name="occassion">Events</string>
     <string name="O_event_1">• blah blah</string>
     <string name="O_DayOfWeek">Th</string>
     <string name="O_time_1">2:45</string>
