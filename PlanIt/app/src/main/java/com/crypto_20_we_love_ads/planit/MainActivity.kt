@@ -1,13 +1,20 @@
 package com.crypto_20_we_love_ads.planit
 
+import android.Manifest
 import android.content.Intent
-import android.net.Uri  // Import Uri
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast  // Import Toast
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.crypto_20_we_love_ads.planit.database.DatabaseHelper
@@ -23,171 +30,198 @@ class MainActivity : AppCompatActivity() {
     private lateinit var currentLocationText: TextView
     private lateinit var dbHelper: DatabaseHelper
 
-    private var currentCalendar: Calendar = Calendar.getInstance() // To keep track of the current date
+    private var currentCalendar: Calendar = Calendar.getInstance()
+
+    // Permission launcher
+    private val permissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            permissions.entries.forEach { entry ->
+                val permission = entry.key
+                val granted = entry.value
+                val message = if (granted) "$permission granted" else "$permission denied"
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-
         currentDate = findViewById(R.id.currentDate)
         currentDOW = findViewById(R.id.currentDOW)
-        eventName = findViewById(R.id.currentEventName)  // TextView for event name
-        currentEventTime = findViewById(R.id.currentEventTime)  // TextView for event time
-        currentLocationText = findViewById(R.id.currentLocationText)  // TextView for location
+        eventName = findViewById(R.id.currentEventName)
+        currentEventTime = findViewById(R.id.currentEventTime)
+        currentLocationText = findViewById(R.id.currentLocationText)
         dbHelper = DatabaseHelper(this)
 
-        // Setup window insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Add Event button redirection
+        // Request permissions
+        requestLocationAndNotificationPermissions()
+
+        // Button listeners
         findViewById<View>(R.id.addEvent).setOnClickListener {
-            val intent = Intent(this, AddActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, AddActivity::class.java))
         }
 
-
-
-        // Home Button stays on the same page (no action needed)
         findViewById<View>(R.id.homeButton).setOnClickListener {
-            // No action, stays on this page
+            // Do nothing
         }
 
-        // Schedule Button redirection
         findViewById<View>(R.id.scheduleButton).setOnClickListener {
-            val intent = Intent(this, CalenderActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, CalenderActivity::class.java))
         }
 
-        // Search Button redirection
         findViewById<View>(R.id.searchButton).setOnClickListener {
-            val intent = Intent(this, SearchActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, SearchActivity::class.java))
         }
 
-        // Settings Button redirection
         findViewById<View>(R.id.settingsButton).setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, SettingsActivity::class.java))
         }
 
         findViewById<View>(R.id.currentEventName).setOnClickListener {
-            val intent = Intent(this, EditActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, EditActivity::class.java))
         }
 
-        // Navigation buttons for previous and next day
         findViewById<View>(R.id.prevDay).setOnClickListener {
             changeDateByDay(-1)
+            displayEventsForCurrentDate()
         }
+
         findViewById<View>(R.id.nextDay).setOnClickListener {
             changeDateByDay(1)
+            displayEventsForCurrentDate()
         }
 
-        // Location ImageView click listener
         findViewById<View>(R.id.currentEventLocation).setOnClickListener {
-            openLocationInMaps() // Call openLocationInMaps when the ImageView is clicked
+            openLocationInMaps()
         }
 
-        // Call method to display events for today
         displayEventsForCurrentDate()
     }
 
-    // Function to open the location in Google Maps
+    private fun requestLocationAndNotificationPermissions() {
+        val permissionsToRequest = mutableListOf<String>()
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            permissionsToRequest.add(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED
+            ) {
+                permissionsToRequest.add(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
+
+        if (permissionsToRequest.isNotEmpty()) {
+            permissionLauncher.launch(permissionsToRequest.toTypedArray())
+        }
+    }
+
     private fun openLocationInMaps() {
         val location = currentLocationText.text.toString()
         if (location.isNotEmpty()) {
             val geoUri = "geo:0,0?q=$location"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(geoUri))  // Use Uri.parse() for geo URI
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(geoUri))
             intent.setPackage("com.google.android.apps.maps")
             startActivity(intent)
         } else {
-            // Handle case where location is empty
-            Toast.makeText(this, "Location not available", Toast.LENGTH_SHORT).show()  // Display a toast message
+            Toast.makeText(this, "Location not available", Toast.LENGTH_SHORT).show()
         }
     }
 
-    // Function to format the selected date (Month Day, e.g., "April 2")
     private fun formatDate(year: Int, month: Int, day: Int): String {
         val calendar = Calendar.getInstance()
         calendar.set(year, month, day)
-
-        val dateFormat = SimpleDateFormat("MMMM d", Locale.getDefault()) // Example: "April 2"
-        return dateFormat.format(calendar.time)
+        return SimpleDateFormat("MMMM d", Locale.getDefault()).format(calendar.time)
     }
 
-    // Function to get the full name of the day of the week (e.g., Monday, Tuesday)
     private fun getDayOfWeek(year: Int, month: Int, day: Int): String {
         val calendar = Calendar.getInstance()
         calendar.set(year, month, day)
-        val dayOfWeek = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault())
-        return dayOfWeek ?: ""  // Default to empty string if null
+        return calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault()) ?: ""
     }
 
-    // Function to update date by day (next or previous)
     private fun changeDateByDay(dayChange: Int) {
         currentCalendar.add(Calendar.DAY_OF_YEAR, dayChange)
         displayEventsForCurrentDate()
     }
 
-    // Display events for the current date
     private fun displayEventsForCurrentDate() {
         val year = currentCalendar.get(Calendar.YEAR)
         val month = currentCalendar.get(Calendar.MONTH)
         val day = currentCalendar.get(Calendar.DAY_OF_MONTH)
 
-        // Format date and day of week
         val formattedDate = formatDate(year, month, day)
         val dayOfWeek = getDayOfWeek(year, month, day)
 
-        // Query and display events for the current date
-        displayEvents(formattedDate, dayOfWeek)
+        displayEvents("2025-04-18", dayOfWeek)
     }
 
-    // Function to query and display event details for a specific date
+
     private fun displayEvents(date: String, dayOfWeek: String) {
         val db = dbHelper.readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM Calendar WHERE startDate = ?", arrayOf(date))
+        val cursor = db.rawQuery("SELECT * FROM calendar WHERE startDate >= ? ORDER BY startDate ASC", arrayOf(date))
+
+        val eventListLayout = findViewById<LinearLayout>(R.id.eventList)
+        val template = findViewById<CardView>(R.id.eventContainer)
+
+        // Clear all added views (keep template hidden at index 0)
+        eventListLayout.removeViews(1, eventListLayout.childCount - 1)
+
+        currentDate.text = date
+        currentDOW.text = dayOfWeek
 
         if (cursor.moveToFirst()) {
-            try {
-                val titleIndex = cursor.getColumnIndexOrThrow("title")
-                val eventTimeIndex = cursor.getColumnIndexOrThrow("eventTime")
-                val locationIndex = cursor.getColumnIndexOrThrow("location")
+            do {
+                val title = cursor.getString(cursor.getColumnIndexOrThrow("title"))
+                val eventTime = cursor.getString(cursor.getColumnIndexOrThrow("startTime"))
+                val location = cursor.getString(cursor.getColumnIndexOrThrow("location"))
+                val importance = cursor.getInt(cursor.getColumnIndexOrThrow("importance"))
 
-                val title = cursor.getString(titleIndex)
-                val eventTime = cursor.getString(eventTimeIndex)
-                val location = cursor.getString(locationIndex)
+                // Clone the dummy eventContainer
+                //val clone = LayoutInflater.from(this).inflate(R.layout.activity_main, null)
+                    //.findViewById<CardView>(R.id.eventContainer)
 
-                // Convert the date string from yyyy-MM-dd to a Date object for formatting
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                val parsedDate = dateFormat.parse(date)
 
-                // Format the date to "MMMM d" (e.g., "April 8")
-                val displayDateFormat = SimpleDateFormat("MMMM d", Locale.getDefault())
-                val formattedDate = parsedDate?.let { displayDateFormat.format(it) } ?: date
+                val clone = LayoutInflater.from(this).inflate(R.layout.event_item, eventListLayout, false)
 
-                // Update the UI with the event data
-                currentDate.text = formattedDate
-                currentDOW.text = dayOfWeek  // Full day of the week name (e.g., Monday)
-                eventName.text = title
-                currentEventTime.text = eventTime
-                currentLocationText.text = location
-            } catch (e: IllegalArgumentException) {
-                // Handle exception (if any)
-            }
+                clone.visibility = View.VISIBLE
+
+                // Fill in data
+                clone.findViewById<TextView>(R.id.currentEventName).text = title
+                clone.findViewById<TextView>(R.id.currentEventTime).text = eventTime
+                clone.findViewById<TextView>(R.id.currentLocationText).text = location
+                clone.findViewById<TextView>(R.id.important).text = "Importance: $importance"
+
+                clone.findViewById<View>(R.id.currentEventLocation).setOnClickListener {
+                    val geoUri = "geo:0,0?q=$location"
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(geoUri))
+                    intent.setPackage("com.google.android.apps.maps")
+                    startActivity(intent)
+                }
+
+                // Add the fully cloned and populated view to the event list
+                eventListLayout.addView(clone)
+
+            } while (cursor.moveToNext())
         } else {
-            // No events found for this date, show default message
-            currentDate.text = date
-            currentDOW.text = dayOfWeek  // Full day of the week name
-            eventName.text = "No events today"
-            currentEventTime.text = "--:--"
-            currentLocationText.text = "No location"
+            val noEventText = TextView(this).apply {
+                text = "No events today"
+                textSize = 20f
+                setPadding(16, 16, 16, 16)
+            }
+            eventListLayout.addView(noEventText)
         }
 
         cursor.close()

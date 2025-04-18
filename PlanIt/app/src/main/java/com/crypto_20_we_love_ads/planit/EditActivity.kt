@@ -1,5 +1,6 @@
 package com.crypto_20_we_love_ads.planit
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
 
 class EditActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -120,6 +122,7 @@ class EditActivity : AppCompatActivity() {
                 }
                 .setNegativeButton("Cancel", null)
                 .show()
+        }
 
             // Add Event button redirection (Change to the actual event-adding activity)
             findViewById<View>(R.id.editEvent).setOnClickListener {
@@ -157,4 +160,4 @@ class EditActivity : AppCompatActivity() {
             }
         }
     }
-}
+

@@ -1,6 +1,8 @@
 package com.crypto_20_we_love_ads.planit
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -15,6 +17,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.crypto_20_we_love_ads.planit.database.DatabaseHelper
 import com.google.android.material.textfield.TextInputLayout
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class AddActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -22,6 +27,19 @@ class AddActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.add_screen)
+
+        /*
+        DATE and Time PICKER
+         */
+        val editTextDate = findViewById<EditText>(R.id.editTextDate)
+        val editTextDateEnd = findViewById<EditText>(R.id.editTextDateEnd)
+        val editTextTime = findViewById<EditText>(R.id.editTextTime)
+        val editTextTimeEnd = findViewById<EditText>(R.id.editTextTimeEnd)
+
+        editTextDate.setOnClickListener { showDatePicker(editTextDate) }
+        editTextDateEnd.setOnClickListener { showDatePicker(editTextDateEnd) }
+        editTextTime.setOnClickListener { showTimePicker(editTextTime) }
+        editTextTimeEnd.setOnClickListener { showTimePicker(editTextTimeEnd) }
 
 
         // Category drop down
@@ -172,6 +190,21 @@ class AddActivity : AppCompatActivity() {
             val location = findViewById<EditText>(R.id.editTextLocation).text.toString()
             val description = findViewById<EditText>(R.id.editTextBox).text.toString()
 
+            //Date validation
+            val dateRegex = Regex("""\d{4}-\d{2}-\d{2}""")
+            if (!dateRegex.matches(startDate) || !dateRegex.matches(endDate)) {
+                Toast.makeText(this, "Please enter dates in YYYY-MM-DD format", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+
+            val timeRegex = Regex("""\d{2}:\d{2}""")
+            if (!timeRegex.matches(startTime) || !timeRegex.matches(endTime)) {
+                Toast.makeText(this, "Please enter times in HH:mm format", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+
             //adding info to the database
             val dbHelper = DatabaseHelper(this)
             dbHelper.insertEvent(
@@ -181,17 +214,51 @@ class AddActivity : AppCompatActivity() {
                 endDate,
                 startTime,
                 endTime,
-                description,
                 dayOfWeek,
                 reminder1,
                 reminder2,
                 importance,
                 recurring,
                 location,
+                description,
             )
         Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
         }
 
 
+    }
+    private fun showDatePicker(editText: EditText) {
+        val calendar = Calendar.getInstance()
+        val datePicker = DatePickerDialog(
+            this,
+            { _, year, month, dayOfMonth ->
+                val selectedDate = Calendar.getInstance()
+                selectedDate.set(year, month, dayOfMonth)
+                val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                editText.setText(formatter.format(selectedDate.time))
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        datePicker.show()
+    }
+
+    private fun showTimePicker(editText: EditText) {
+        val calendar = Calendar.getInstance()
+        val timePicker = TimePickerDialog(
+            this,
+            { _, hourOfDay, minute ->
+                val selectedTime = Calendar.getInstance()
+                selectedTime.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                selectedTime.set(Calendar.MINUTE, minute)
+                val formatter = SimpleDateFormat("HH:mm", Locale.getDefault())
+                editText.setText(formatter.format(selectedTime.time))
+            },
+            calendar.get(Calendar.HOUR_OF_DAY),
+            calendar.get(Calendar.MINUTE),
+            true
+        )
+        timePicker.show()
     }
 }
