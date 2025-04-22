@@ -187,11 +187,11 @@ class MainActivity : AppCompatActivity() {
 
         val formattedDate = SimpleDateFormat("MMMM d", Locale.getDefault()).format(currentCalendar.time)
         currentDate.text = formattedDate
-
         currentDOW.text = dayOfWeek
 
         if (cursor.moveToFirst()) {
             do {
+                val eventId = cursor.getInt(cursor.getColumnIndexOrThrow("id")) // <- NEW LINE
                 val title = cursor.getString(cursor.getColumnIndexOrThrow("title"))
                 val eventTime = cursor.getString(cursor.getColumnIndexOrThrow("startTime"))
                 val location = cursor.getString(cursor.getColumnIndexOrThrow("location"))
@@ -200,7 +200,20 @@ class MainActivity : AppCompatActivity() {
                 val clone = LayoutInflater.from(this).inflate(R.layout.event_item, eventListLayout, false)
                 clone.visibility = View.VISIBLE
 
-                clone.findViewById<TextView>(R.id.currentEventName).text = title
+                clone.findViewById<TextView>(R.id.currentEventName).apply {
+                    text = title
+                    setOnClickListener {
+                        val intent = Intent(this@MainActivity, EditActivity::class.java).apply {
+                            putExtra("eventId", eventId) // <- NEW LINE
+                            putExtra("title", title)
+                            putExtra("startTime", eventTime)
+                            putExtra("location", location)
+                            putExtra("date", date)
+                        }
+                        startActivity(intent)
+                    }
+                }
+
                 clone.findViewById<TextView>(R.id.currentEventTime).text = eventTime
                 clone.findViewById<TextView>(R.id.currentLocationText).text = location
 
