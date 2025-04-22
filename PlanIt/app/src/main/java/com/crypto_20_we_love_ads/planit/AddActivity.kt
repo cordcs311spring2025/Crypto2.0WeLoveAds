@@ -29,17 +29,19 @@ class AddActivity : AppCompatActivity() {
         setContentView(R.layout.add_screen)
 
         /*
-        DATE and Time PICKER
+        DATE and Time PICKERS
          */
         val editTextDate = findViewById<EditText>(R.id.editTextDate)
         val editTextDateEnd = findViewById<EditText>(R.id.editTextDateEnd)
         val editTextTime = findViewById<EditText>(R.id.editTextTime)
         val editTextTimeEnd = findViewById<EditText>(R.id.editTextTimeEnd)
+        val editTextRecDateEnd = findViewById<EditText>(R.id.editTextRecEndDate)
 
         editTextDate.setOnClickListener { showDatePicker(editTextDate) }
         editTextDateEnd.setOnClickListener { showDatePicker(editTextDateEnd) }
         editTextTime.setOnClickListener { showTimePicker(editTextTime) }
         editTextTimeEnd.setOnClickListener { showTimePicker(editTextTimeEnd) }
+        editTextRecDateEnd.setOnClickListener { showDatePicker(editTextRecDateEnd)}
 
 
         // Category drop down
@@ -95,11 +97,14 @@ class AddActivity : AppCompatActivity() {
         //Visability
         val switchRec = findViewById<Switch>(R.id.switchRec)
         val dayDDmenu = findViewById<Button>(R.id.btnDaySel)
+        val recEndDate = findViewById<EditText>(R.id.editTextRecEndDate)
         switchRec.setOnCheckedChangeListener { _, isSwitched ->
             if (isSwitched) {
                 dayDDmenu.visibility = View.VISIBLE
+                recEndDate.visibility = View.VISIBLE
             } else {
                 dayDDmenu.visibility = View.GONE
+                recEndDate.visibility = View.GONE
             }
         }
 
@@ -170,13 +175,24 @@ class AddActivity : AppCompatActivity() {
         createSubmit.setOnClickListener {
             //Gathering all the values from the screen
             val title = findViewById<EditText>(R.id.editTextTitle).text.toString()
-            val category = findViewById<AutoCompleteTextView>(R.id.autoTVCat).text.toString()
+            if (title == "") {
+                Toast.makeText(this, "Please enter a title", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            var category = findViewById<AutoCompleteTextView>(R.id.autoTVCat).text.toString()
+            if (category == "") {
+                category = "none"
+            }
             val startDate = findViewById<EditText>(R.id.editTextDate).text.toString()
             val startTime = findViewById<EditText>(R.id.editTextTime).text.toString()
             val endDate = findViewById<EditText>(R.id.editTextDateEnd).text.toString()
             val endTime = findViewById<EditText>(R.id.editTextTimeEnd).text.toString()
             val reminder1 = findViewById<AutoCompleteTextView>(R.id.autoTVRem).text.toString()
-            val reminder2 = findViewById<AutoCompleteTextView>(R.id.autoTVRem2).text.toString()
+            var reminder2 = findViewById<AutoCompleteTextView>(R.id.autoTVRem2).text.toString()
+            //Ensures a default value if none selected
+            if (reminder1 == "Location Based" && reminder2 == ""){
+                reminder2 = "15 Minutes"
+            }
             val importanceText = findViewById<AutoCompleteTextView>(R.id.autoTVImport).text.toString()
             //mapping the strings to numbers
             val importance = when (importanceText) {
@@ -186,6 +202,7 @@ class AddActivity : AppCompatActivity() {
                 else -> 1 //Defaults to low
             }
             val recurring = findViewById<Switch>(R.id.switchRec).isChecked
+            val recurringEnd = findViewById<EditText>(R.id.editTextRecEndDate).text.toString()
             val dayOfWeek = findViewById<Button>(R.id.btnDaySel).text.toString()
             val location = findViewById<EditText>(R.id.editTextLocation).text.toString()
             val description = findViewById<EditText>(R.id.editTextBox).text.toString()
@@ -207,6 +224,7 @@ class AddActivity : AppCompatActivity() {
 
             //adding info to the database
             val dbHelper = DatabaseHelper(this)
+
             dbHelper.insertEvent(
                 title,
                 category,
@@ -219,10 +237,13 @@ class AddActivity : AppCompatActivity() {
                 reminder2,
                 importance,
                 recurring,
+                recurringEnd,
                 location,
                 description,
             )
         Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
 

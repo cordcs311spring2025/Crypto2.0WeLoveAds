@@ -10,7 +10,6 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -32,7 +31,6 @@ class MainActivity : AppCompatActivity() {
 
     private var currentCalendar: Calendar = Calendar.getInstance()
 
-    // Permission launcher
     private val permissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
             permissions.entries.forEach { entry ->
@@ -45,7 +43,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
         currentDate = findViewById(R.id.currentDate)
@@ -61,16 +58,14 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Request permissions
         requestLocationAndNotificationPermissions()
 
-        // Button listeners
         findViewById<View>(R.id.addEvent).setOnClickListener {
             startActivity(Intent(this, AddActivity::class.java))
         }
 
         findViewById<View>(R.id.homeButton).setOnClickListener {
-            // Do nothing
+            // Stay on main screen
         }
 
         findViewById<View>(R.id.scheduleButton).setOnClickListener {
@@ -91,19 +86,30 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<View>(R.id.prevDay).setOnClickListener {
             changeDateByDay(-1)
-            displayEventsForCurrentDate()
         }
 
         findViewById<View>(R.id.nextDay).setOnClickListener {
             changeDateByDay(1)
-            displayEventsForCurrentDate()
         }
 
         findViewById<View>(R.id.currentEventLocation).setOnClickListener {
             openLocationInMaps()
         }
 
-        displayEventsForCurrentDate()
+        // Handle the selected date passed from CalenderActivity
+        val selectedDate = intent.getStringExtra("selectedDate")
+        if (selectedDate != null) {
+            val calendar = Calendar.getInstance()
+            val dateParts = selectedDate.split("-")
+            val year = dateParts[0].toInt()
+            val month = dateParts[1].toInt() - 1
+            val day = dateParts[2].toInt()
+            calendar.set(year, month, day)
+            currentCalendar = calendar
+            displayEventsForCurrentDate()
+        } else {
+            displayEventsForCurrentDate()
+        }
     }
 
     private fun requestLocationAndNotificationPermissions() {
@@ -162,47 +168,77 @@ class MainActivity : AppCompatActivity() {
         val month = currentCalendar.get(Calendar.MONTH)
         val day = currentCalendar.get(Calendar.DAY_OF_MONTH)
 
-        val formattedDate = formatDate(year, month, day)
+        val dateFormatted = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(
+            Calendar.getInstance().apply {
+                set(year, month, day)
+            }.time
+        )
         val dayOfWeek = getDayOfWeek(year, month, day)
 
-        displayEvents("2025-04-18", dayOfWeek)
+        displayEvents(dateFormatted, dayOfWeek)
     }
-
 
     private fun displayEvents(date: String, dayOfWeek: String) {
         val db = dbHelper.readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM calendar WHERE startDate >= ? ORDER BY startDate ASC", arrayOf(date))
+//        val cursor = db.rawQuery("SELECT * FROM calendar WHERE startDate = ?", arrayOf(date))
+        val cursor = db.rawQuery(
+            """
+    SELECT * FROM calendar 
+    WHERE startDate = ? 
+       OR (
+        dayOfWeek IS NOT NULL 
+        AND dayOfWeek LIKE '%' || ? || '%'
+        AND (recurringEnd IS NULL OR recurringEnd >= ?))
+    """.trimIndent(), arrayOf(date, dayOfWeek, date)
+        )
 
         val eventListLayout = findViewById<LinearLayout>(R.id.eventList)
-        val template = findViewById<CardView>(R.id.eventContainer)
-
-        // Clear all added views (keep template hidden at index 0)
         eventListLayout.removeViews(1, eventListLayout.childCount - 1)
 
-        currentDate.text = date
+        val formattedDate = SimpleDateFormat("MMMM d", Locale.getDefault()).format(currentCalendar.time)
+        currentDate.text = formattedDate
         currentDOW.text = dayOfWeek
 
         if (cursor.moveToFirst()) {
             do {
+                val eventId = cursor.getInt(cursor.getColumnIndexOrThrow("id")) // <- NEW LINE
                 val title = cursor.getString(cursor.getColumnIndexOrThrow("title"))
                 val eventTime = cursor.getString(cursor.getColumnIndexOrThrow("startTime"))
                 val location = cursor.getString(cursor.getColumnIndexOrThrow("location"))
                 val importance = cursor.getInt(cursor.getColumnIndexOrThrow("importance"))
 
-                // Clone the dummy eventContainer
-                //val clone = LayoutInflater.from(this).inflate(R.layout.activity_main, null)
-                    //.findViewById<CardView>(R.id.eventContainer)
-
-
                 val clone = LayoutInflater.from(this).inflate(R.layout.event_item, eventListLayout, false)
-
                 clone.visibility = View.VISIBLE
 
-                // Fill in data
-                clone.findViewById<TextView>(R.id.currentEventName).text = title
+                clone.findViewById<TextView>(R.id.currentEventName).apply {
+                    text = title
+                    setOnClickListener {
+                        val intent = Intent(this@MainActivity, EditActivity::class.java).apply {
+                            putExtra("id", eventId) // <- NEW LINE
+                            /*
+                            I'm just going to query the db based on the event ID
+                            putExtra("title", title)
+                            putExtra("startTime", eventTime)
+                            putExtra("location", location)
+                            putExtra("date", date)
+                  */
+                        }
+                        startActivity(intent)
+                    }
+                }
+
                 clone.findViewById<TextView>(R.id.currentEventTime).text = eventTime
                 clone.findViewById<TextView>(R.id.currentLocationText).text = location
-                clone.findViewById<TextView>(R.id.important).text = "Importance: $importance"
+
+                val importanceView = clone.findViewById<TextView>(R.id.important)
+                val importanceText = when (importance) {
+                    1 -> "!"
+                    2 -> "!!"
+                    3 -> "!!!"
+                    else -> ""
+                }
+                importanceView.text = importanceText
+                importanceView.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark))
 
                 clone.findViewById<View>(R.id.currentEventLocation).setOnClickListener {
                     val geoUri = "geo:0,0?q=$location"
@@ -211,7 +247,6 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
 
-                // Add the fully cloned and populated view to the event list
                 eventListLayout.addView(clone)
 
             } while (cursor.moveToNext())

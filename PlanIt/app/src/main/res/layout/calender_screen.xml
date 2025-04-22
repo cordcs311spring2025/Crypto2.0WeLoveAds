@@ -219,6 +219,7 @@
             <!-- Sample Event Box -->
             <LinearLayout
                 android:id="@+id/eventContainer"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
