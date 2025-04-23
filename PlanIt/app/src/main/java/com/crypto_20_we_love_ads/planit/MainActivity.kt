@@ -1,9 +1,12 @@
 package com.crypto_20_we_love_ads.planit
 
 import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +14,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresPermission
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
@@ -41,10 +45,25 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    @RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Create the notification channel if not already created
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val manager = getSystemService(NotificationManager::class.java)
+            if (manager.getNotificationChannel("event_reminders") == null) {
+                val channel = NotificationChannel(
+                    "event_reminders",
+                    "Event Reminders",
+                    NotificationManager.IMPORTANCE_HIGH
+                )
+                manager.createNotificationChannel(channel)
+            }
+        }
+
+        // Other setup code
         currentDate = findViewById(R.id.currentDate)
         currentDOW = findViewById(R.id.currentDOW)
         eventName = findViewById(R.id.currentEventName)
@@ -59,6 +78,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         requestLocationAndNotificationPermissions()
+
+        // Set the repeating alarm to check for notifications
+        val reminderReceiver = ReminderReceiver()
+        reminderReceiver.setRepeatingAlarm(this)  // Set up alarm for recurring reminder check
 
         findViewById<View>(R.id.addEvent).setOnClickListener {
             startActivity(Intent(this, AddActivity::class.java))
@@ -111,6 +134,8 @@ class MainActivity : AppCompatActivity() {
             displayEventsForCurrentDate()
         }
     }
+
+
 
     private fun requestLocationAndNotificationPermissions() {
         val permissionsToRequest = mutableListOf<String>()
@@ -187,11 +212,11 @@ class MainActivity : AppCompatActivity() {
 
         val formattedDate = SimpleDateFormat("MMMM d", Locale.getDefault()).format(currentCalendar.time)
         currentDate.text = formattedDate
+
         currentDOW.text = dayOfWeek
 
         if (cursor.moveToFirst()) {
             do {
-                val eventId = cursor.getInt(cursor.getColumnIndexOrThrow("id")) // <- NEW LINE
                 val title = cursor.getString(cursor.getColumnIndexOrThrow("title"))
                 val eventTime = cursor.getString(cursor.getColumnIndexOrThrow("startTime"))
                 val location = cursor.getString(cursor.getColumnIndexOrThrow("location"))
@@ -200,11 +225,13 @@ class MainActivity : AppCompatActivity() {
                 val clone = LayoutInflater.from(this).inflate(R.layout.event_item, eventListLayout, false)
                 clone.visibility = View.VISIBLE
 
+                val id = cursor.getInt(cursor.getColumnIndexOrThrow("id")) // Get event ID
+
                 clone.findViewById<TextView>(R.id.currentEventName).apply {
                     text = title
                     setOnClickListener {
                         val intent = Intent(this@MainActivity, EditActivity::class.java).apply {
-                            putExtra("eventId", eventId) // <- NEW LINE
+                            putExtra("eventID", id) // Pass event ID
                             putExtra("title", title)
                             putExtra("startTime", eventTime)
                             putExtra("location", location)
