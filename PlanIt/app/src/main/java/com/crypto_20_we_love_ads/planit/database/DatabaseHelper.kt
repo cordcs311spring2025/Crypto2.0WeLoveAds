@@ -2,7 +2,9 @@ package com.crypto_20_we_love_ads.planit.database
 
 import android.content.Context
 import android.content.ContentValues
+
 import android.database.Cursor
+
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
@@ -43,6 +45,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         }
         cursor.close()
     }
+
     //Find events by their ID. Used for the edit and delete functions
     fun getEventById(id: Int): Cursor? {
         val db = this.readableDatabase
@@ -89,6 +92,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val rowsDeleted = db.delete("Calendar", "id = ?", arrayOf(id.toString()))
         return rowsDeleted > 0
     }
+
     // Insert new event into the database
     fun insertEvent(
         title: String,

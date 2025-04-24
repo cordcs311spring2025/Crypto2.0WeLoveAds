@@ -458,6 +458,7 @@ START OF INPUT FIELDS
                 android:id="@+id/editTextRecEndDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/green"
                 android:ems="10"
                 android:hint="End Date"
                 android:inputType="none"
@@ -520,6 +521,7 @@ START OF INPUT FIELDS
                 app:layout_constraintStart_toEndOf="@+id/editTextBox"
                 app:layout_constraintTop_toBottomOf="@+id/Descr" />
 
+
             <Button
                 android:id="@+id/deleteButton"
                 android:layout_width="141dp"
@@ -531,6 +533,7 @@ START OF INPUT FIELDS
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editButton"
                 app:layout_constraintStart_toEndOf="@+id/editTextBox"/>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

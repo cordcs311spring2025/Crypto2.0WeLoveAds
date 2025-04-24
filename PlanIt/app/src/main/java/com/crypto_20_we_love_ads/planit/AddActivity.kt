@@ -61,6 +61,7 @@ class AddActivity : AppCompatActivity() {
         impSel.setAdapter(adapter)
         impSel.setOnClickListener {
             impSel.showDropDown()
+
         }
 
         //Reminder dropdown menu
@@ -81,6 +82,7 @@ class AddActivity : AppCompatActivity() {
             remSelected2.showDropDown()
         }
 
+
         //Turns the second dropdown if Location based is true
         remSelected.setOnItemClickListener { _, _, num, _ ->
             val selectedDDOption = remOptions[num]
@@ -91,6 +93,7 @@ class AddActivity : AppCompatActivity() {
             else {
                 remMenu2.visibility = View.GONE
             }
+
         }
 
         //Recurring events switch actions

@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
+
 class EditActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,25 @@ class EditActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.edit_screen)
 
+        // Category drop down
+        val catOptions =
+            arrayOf("None", "Home", "Work", "Sport", "School", "Birthday", "Social", "Event")
+        val catSel = findViewById<AutoCompleteTextView>(R.id.autoTVCat)
+        val catAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, catOptions)
+        catSel.setAdapter(catAdapter)
+        catSel.setOnClickListener {
+            catSel.showDropDown()
+        }
+
+
+        // Importance drop down menu
+        val impOptions = arrayOf("Low", "Medium", "High")
+        val impSel = findViewById<AutoCompleteTextView>(R.id.autoTVImport)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, impOptions)
+        impSel.setAdapter(adapter)
+        impSel.setOnClickListener {
+            impSel.showDropDown()
+        }
 
         /*
         DATE and Time PICKER
@@ -126,6 +146,7 @@ class EditActivity : AppCompatActivity() {
             } else {
                 dayDDmenu.visibility = View.GONE
                 recEndDate.visibility = View.GONE
+
             }
         }
 
@@ -379,5 +400,7 @@ class EditActivity : AppCompatActivity() {
         )
         timePicker.show()
     }
+
 }
+
 
