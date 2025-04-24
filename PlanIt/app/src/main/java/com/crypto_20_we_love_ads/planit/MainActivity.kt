@@ -45,10 +45,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
     @RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         // Create the notification channel if not already created
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -79,9 +81,11 @@ class MainActivity : AppCompatActivity() {
 
         requestLocationAndNotificationPermissions()
 
+
         // Set the repeating alarm to check for notifications
         val reminderReceiver = ReminderReceiver()
         reminderReceiver.setRepeatingAlarm(this)  // Set up alarm for recurring reminder check
+
 
         findViewById<View>(R.id.addEvent).setOnClickListener {
             startActivity(Intent(this, AddActivity::class.java))
@@ -134,7 +138,6 @@ class MainActivity : AppCompatActivity() {
             displayEventsForCurrentDate()
         }
     }
-
 
 
     private fun requestLocationAndNotificationPermissions() {
@@ -205,7 +208,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayEvents(date: String, dayOfWeek: String) {
         val db = dbHelper.readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM calendar WHERE startDate = ?", arrayOf(date))
+//        val cursor = db.rawQuery("SELECT * FROM calendar WHERE startDate = ?", arrayOf(date))
+        val cursor = db.rawQuery(
+            """
+    SELECT * FROM calendar 
+    WHERE startDate = ? 
+       OR (
+        dayOfWeek IS NOT NULL 
+        AND dayOfWeek LIKE '%' || ? || '%'
+        AND (recurringEnd IS NULL OR recurringEnd >= ?))
+    """.trimIndent(), arrayOf(date, dayOfWeek, date)
+        )
+
 
         val eventListLayout = findViewById<LinearLayout>(R.id.eventList)
         eventListLayout.removeViews(1, eventListLayout.childCount - 1)
@@ -217,6 +231,9 @@ class MainActivity : AppCompatActivity() {
 
         if (cursor.moveToFirst()) {
             do {
+
+                val eventId = cursor.getInt(cursor.getColumnIndexOrThrow("id")) // <- NEW LINE
+
                 val title = cursor.getString(cursor.getColumnIndexOrThrow("title"))
                 val eventTime = cursor.getString(cursor.getColumnIndexOrThrow("startTime"))
                 val location = cursor.getString(cursor.getColumnIndexOrThrow("location"))
@@ -225,17 +242,23 @@ class MainActivity : AppCompatActivity() {
                 val clone = LayoutInflater.from(this).inflate(R.layout.event_item, eventListLayout, false)
                 clone.visibility = View.VISIBLE
 
-                val id = cursor.getInt(cursor.getColumnIndexOrThrow("id")) // Get event ID
+
 
                 clone.findViewById<TextView>(R.id.currentEventName).apply {
                     text = title
                     setOnClickListener {
                         val intent = Intent(this@MainActivity, EditActivity::class.java).apply {
-                            putExtra("eventID", id) // Pass event ID
+
+                            putExtra("id", eventId) // <- NEW LINE
+                            /*
+                            I'm just going to query the db based on the event ID
                             putExtra("title", title)
                             putExtra("startTime", eventTime)
                             putExtra("location", location)
                             putExtra("date", date)
+
+                  */
+
                         }
                         startActivity(intent)
                     }
