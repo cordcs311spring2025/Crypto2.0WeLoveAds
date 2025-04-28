@@ -3,8 +3,10 @@ package com.crypto_20_we_love_ads.planit
 import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -17,12 +19,17 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresPermission
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import android.location.Location
+import androidx.core.app.NotificationCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.crypto_20_we_love_ads.planit.database.DatabaseHelper
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +39,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var currentEventTime: TextView
     private lateinit var currentLocationText: TextView
     private lateinit var dbHelper: DatabaseHelper
+    //This is for the location based notification
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private var currentCalendar: Calendar = Calendar.getInstance()
 
@@ -50,7 +59,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        //location based notification
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         // Create the notification channel if not already created
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -298,4 +308,102 @@ class MainActivity : AppCompatActivity() {
 
         cursor.close()
     }
+
+    /*
+    Calculates time to leave based on location
+     */
+
+    private fun getLeaveTime(eventStartTime: String, eventLocation: String) {
+        //Check permissions are granted
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            Toast.makeText(this, "Location Permission not granted", Toast.LENGTH_SHORT).show()
+            return
+        }
+        // find users last know location
+        fusedLocationClient.lastLocation.addOnSuccessListener { currentLocation: Location? ->
+            if (currentLocation == null) {
+                Toast.makeText(this, "Could not get current location", Toast.LENGTH_SHORT).show()
+                return@addOnSuccessListener
+            }
+
+
+            //Convert string addresses into lat and Lon
+            val locationFinder = Geocoder(this, Locale.getDefault())
+            //this would return a list of all the things that pop up when a location is entered so instead i limited max results to 1
+            @Suppress("DEPRECATION") val destinationOptionsList =
+                locationFinder.getFromLocationName(eventLocation, 1)
+
+            if (destinationOptionsList.isNullOrEmpty()) {
+                Toast.makeText(
+                    this,
+                    "Could not gather an address for location: $eventLocation",
+                    Toast.LENGTH_SHORT
+                )
+                return@addOnSuccessListener
+            }
+
+            val destinationLocation = Location("").apply {
+                latitude = destinationOptionsList[0].latitude
+                longitude = destinationOptionsList[0].longitude
+            }
+
+            //Distance in meters
+            val distanceMeters = currentLocation.distanceTo(destinationLocation)
+
+            //Estimate travel time. I wanted to use Google's API but that costs money
+            // This is should be about 50 km/h measured in m/s
+            val averageDriveSpeed = 13
+            val travelTime = ((distanceMeters / averageDriveSpeed) * 1000).toLong()
+            val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+            val eventCalendar = Calendar.getInstance().apply {
+                //this turns the string into an official timestamp
+                time = timeFormat.parse(eventStartTime) ?: return@addOnSuccessListener
+            }
+
+            val currentTime = System.currentTimeMillis()
+            val leaveTime = eventCalendar.timeInMillis - travelTime
+
+            //Check if its time to leave
+            if (currentTime >= leaveTime && currentTime < eventCalendar.timeInMillis){
+                sendLeaveNowNotification(eventLocation)
+            }
+
+        }
+    }
+
+    fun sendLeaveNowNotification(eventLocation: String){
+        val notifManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notification = NotificationCompat.Builder(this, "event_reminders")
+            .setContentTitle("Time to leave")
+            .setContentText("Your event at $eventLocation is starting soon")
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .build()
+        notifManager.notify(1, notification)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

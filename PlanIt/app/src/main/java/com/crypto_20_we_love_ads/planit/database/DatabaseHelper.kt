@@ -39,7 +39,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 put("reminder2", "")
                 put("importance", 3)  // Original importance level (e.g., 3)
                 put("recurring", 1)  // Original recurring value (true)
-                put("location", "IDK")  // Original location
+                put("location", "Concordia College")  // Original location
             }
             db.insert(TABLE_CALENDAR, null, values)
         }

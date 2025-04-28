@@ -172,7 +172,7 @@
     <TextView
         android:id="@+id/currentDate"
         android:layout_width="191dp"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:text="@string/Date"
         android:textSize="30sp"
@@ -183,12 +183,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.189" />
 
-
+    <!--        android:layout_marginTop="12dp"-->
     <TextView
         android:id="@+id/currentDOW"
         android:layout_width="191dp"
         android:layout_height="32dp"
-        android:layout_marginTop="12dp"
+
         android:background="@android:color/transparent"
         android:text="@string/DayOfWeek"
         android:textColor="@color/accent"
