@@ -68,6 +68,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -173,116 +174,56 @@
 
     <!---Body-->
 
-    <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/footer"
+    <TextView
+        android:id="@+id/themeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/themeTitle"
+        android:textAlignment="center"
+        android:textSize="@dimen/mediumFontSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTitle">
+        app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/themeToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:checked="false"
+        android:text="@string/themeToggle"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/themeTitle"
+        app:switchPadding="5dp"
+        tools:checked="false" />
 
-            <TextView
-                android:id="@+id/themeTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginSmall"
-                android:text="@string/themeTitle"
-                android:textAlignment="center"
-                android:textSize="@dimen/mediumFontSize"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
+    <TextView
+        android:id="@+id/accentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/accentTitle"
+        android:textAlignment="center"
+        android:textSize="@dimen/mediumFontSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/themeToggle" />
 
-            <!--they had a geeks for geeks page about this-->
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/themeToggle"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:checked="false"
-                android:text="@string/themeToggle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/themeTitle"
-                tools:checked="false" />
-
-            <TextView
-                android:id="@+id/styleTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginSmall"
-                android:text="@string/styleTitle"
-                android:textAlignment="center"
-                android:textSize="@dimen/mediumFontSize" />
-
-            <Spinner
-                android:id="@+id/stylePicker"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/styleTitle" />
-
-            <TextView
-                android:id="@+id/accentTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_marginTop="@dimen/marginSmall"
-                android:text="@string/accentTitle"
-                android:textAlignment="center"
-                android:textSize="@dimen/mediumFontSize"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/themeToggle" />
-
-            <Button
-                android:id="@+id/accentPicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/accent"
-                android:text="@string/colorPickerButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/accentTitle" />
-
-            <TextView
-                android:id="@+id/categoryColorTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginSmall"
-                android:text="@string/categoryPickerTitle"
-                android:textAlignment="center"
-                android:textSize="@dimen/mediumFontSize"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/accentPicker2" />
-
-            <Spinner
-                android:id="@+id/categoryPicker"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp" />
-
-            <Button
-                android:id="@+id/categoryColorPicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/accent"
-                android:text="@string/colorPickerButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="558dp" />
-
-        </LinearLayout>
-    </ScrollView>
+    <Button
+        android:id="@+id/accentPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/accent"
+        android:text="@string/colorPickerButton"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accentTitle" />
 
     <TextView
         android:id="@+id/settingsTitle"

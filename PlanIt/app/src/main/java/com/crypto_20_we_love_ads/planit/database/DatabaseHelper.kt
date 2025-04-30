@@ -7,6 +7,7 @@ import android.database.Cursor
 
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.crypto_20_we_love_ads.planit.EventItem
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -131,6 +132,49 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
     }
 
+    //Searching the database [defunct]
+    /*fun searchItems(query: String): List<String> {
+        val list = mutableListOf<String>()
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT title FROM $TABLE_CALENDAR WHERE title LIKE ?", arrayOf("%$query%"))
+
+        cursor.use {
+            while (it.moveToNext()) {
+                list.add(it.getString(0))
+            }
+        }
+        return list
+    }*/
+
+    fun searchItems(query: String): List<EventItem> {
+        val db = readableDatabase
+        val cursor = db.rawQuery(
+            """SELECT *
+                FROM $TABLE_CALENDAR
+                WHERE title LIKE ? 
+                OR location LIKE ?
+                """.trimIndent(),
+            arrayOf("%$query%", "%$query%")
+        )
+
+        val list = mutableListOf<EventItem>()
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"))
+                val title = cursor.getString(cursor.getColumnIndexOrThrow("title"))
+                val startTime = cursor.getString(cursor.getColumnIndexOrThrow("startTime"))
+                val startDate = cursor.getString(cursor.getColumnIndexOrThrow("startDate"))
+                val location = cursor.getString(cursor.getColumnIndexOrThrow("location"))
+                val importance = cursor.getInt(cursor.getColumnIndexOrThrow("importance"))
+
+                list.add(EventItem(id, title, startTime, startDate, location, importance))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return list
+    }
+
+
     companion object {
         private const val DATABASE_NAME = "events.db"
         private const val DATABASE_VERSION = 3
@@ -158,4 +202,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             );
         """
     }
+
+
 }

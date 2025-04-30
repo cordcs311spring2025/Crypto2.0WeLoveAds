@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">@color/teal</color>
+    <color name="black">#FF000000</color>
+    <color name="blue">#5C7CFA</color>
+    <color name="gray">#d9d9d9</color>
+    <color name="green">#00bf36</color>
+    <color name="orange">#DC8052</color>
+    <color name="pink">#FDA9E5</color>
+    <color name="red">#FA5252</color>
+    <color name="teal">#48927d</color>
+    <color name="theme">@color/gray</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#FCC419</color>
+    <dimen name="footerFontSize">15sp</dimen>
+    <dimen name="footerHeight">104dp</dimen>
+    <dimen name="footerIconHeight">48dp</dimen>
+    <dimen name="footerIconWidth">47sp</dimen>
+    <dimen name="headerHeight">100dp</dimen>
+    <dimen name="largeFontSize">34sp</dimen>
+    <dimen name="logoFontSize">24sp</dimen>
+    <dimen name="logoHeight">67dp</dimen>
+    <dimen name="logoTopMargin">24dp</dimen>
+    <dimen name="logoWidth">83dp</dimen>
+    <dimen name="marginSmall">10dp</dimen>
+    <dimen name="marginTiny">1dp</dimen>
+    <dimen name="mediumFontSize">22sp</dimen>
+    <item name="Catagories" type="id"/>
+    <item name="Descr" type="id"/>
+    <item name="Import" type="id"/>
+    <item name="Start" type="id"/>
+    <item name="Title" type="id"/>
+    <item name="createButton" type="id"/>
+    <item name="editTextBox" type="id"/>
+    <item name="editTextCat" type="id"/>
+    <item name="editTextDate" type="id"/>
+    <item name="editTextDateEnd" type="id"/>
+    <item name="editTextText2" type="id"/>
+    <item name="editTextTime" type="id"/>
+    <item name="editTextTimeEnd" type="id"/>
+    <item name="editTextTitle" type="id"/>
+    <string name="Date">February 27</string>
+    <string name="DayOfWeek">Thursday</string>
+    <string name="O_DayOfWeek">Th</string>
+    <string name="O_event_1">• blah blah</string>
+    <string name="O_time_1">2:45</string>
+    <string name="accentTitle">Other Options</string>
+    <string name="addCategory">Categories</string>
+    <string name="addDesc">Description (optional)</string>
+    <string name="addEnd">End</string>
+    <string name="addImportance">Importance</string>
+    <string name="addLocation">Location</string>
+    <string name="addReccuring">Recurring</string>
+    <string name="addRemind">Reminder</string>
+    <string name="addStart">Start</string>
+    <string name="addTitle">Title</string>
+    <string name="add_event">add event</string>
+    <string name="app_name">PlanIt</string>
+    <string name="categoryPickerTitle">Category Colors</string>
+    <string name="colorPickerButton">Silly Button</string>
+    <string name="event_1">• blah blah</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="importance">!!!</string>
+    <string name="location_1"> /@Conco </string>
+    <string name="nav_add">+</string>
+    <string name="nav_schedule">Schedule</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_today">Today</string>
+    <string name="occassion">Events</string>
+    <string name="searchBar">Search...</string>
+    <string name="styleTitle">Calendar Style</string>
+    <string name="submit">Create</string>
+    <string name="submitEdit">Edit</string>
+    <string name="themeTitle">Theme</string>
+    <string name="themeToggle">Dark Mode</string>
+    <string name="time_1">2:45</string>
+    <style name="Base.Theme.PlanIt" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.PlanIt" parent="Base.Theme.PlanIt"/>
+</resources>

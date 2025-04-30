@@ -39,12 +39,14 @@
     <!---Settings Screen-->
     <string name="themeTitle">Theme</string>
     <string name="themeToggle">Dark Mode</string>
-    <string name="accentTitle">Accent Color</string>
-    <string name="colorPickerButton">Pick Color</string>
+    <string name="accentTitle">Other Options</string>
+    <string name="colorPickerButton">Silly Button</string>
     <string name="styleTitle">Calendar Style</string>
     <string name="categoryPickerTitle">Category Colors</string>
 
     <!---Search Screen-->
     <string name="searchBar">Search...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
