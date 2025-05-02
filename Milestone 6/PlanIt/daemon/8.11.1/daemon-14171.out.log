@@ -1,0 +1,205 @@
+2025-05-02T10:30:55.257-0500 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonMain] Assuming the daemon was started with following jvm opts: [-Xmx2048m, -Dfile.encoding=UTF-8, -Duser.country=US, -Duser.language=en, -Duser.variant]
+2025-05-02T10:30:55.468-0500 [INFO] [org.gradle.launcher.daemon.server.Daemon] start() called on daemon - DefaultDaemonContext[uid=58d8ffad-a6d9-49f9-8149-8c400ac21f66,javaHome=/Applications/Android Studio.app/Contents/jbr/Contents/Home,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt/daemon,pid=14171,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+2025-05-02T10:30:55.503-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface utun5
+2025-05-02T10:30:55.503-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-05-02T10:30:55.503-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:cb36:1c55:813d:aa55%utun5
+2025-05-02T10:30:55.503-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface utun4
+2025-05-02T10:30:55.503-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-05-02T10:30:55.503-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:6082:ead2:d3b7:6dbd%utun4
+2025-05-02T10:30:55.503-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface utun3
+2025-05-02T10:30:55.504-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-05-02T10:30:55.504-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:ce81:b1c:bd2c:69e%utun3
+2025-05-02T10:30:55.504-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface utun2
+2025-05-02T10:30:55.504-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-05-02T10:30:55.504-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:530f:7f0f:96ef:62a2%utun2
+2025-05-02T10:30:55.504-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface utun1
+2025-05-02T10:30:55.504-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-05-02T10:30:55.504-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:b57f:2654:5b1d:f31d%utun1
+2025-05-02T10:30:55.504-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface utun0
+2025-05-02T10:30:55.505-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-05-02T10:30:55.505-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:75cc:5664:a71e:fd29%utun0
+2025-05-02T10:30:55.505-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface llw0
+2025-05-02T10:30:55.505-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-05-02T10:30:55.505-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:1c71:fcff:fe9a:f57c%llw0
+2025-05-02T10:30:55.505-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface awdl0
+2025-05-02T10:30:55.505-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-05-02T10:30:55.505-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:1c71:fcff:fe9a:f57c%awdl0
+2025-05-02T10:30:55.506-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface en0
+2025-05-02T10:30:55.506-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-05-02T10:30:55.506-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:c12:c6f5:adab:4c5e%en0
+2025-05-02T10:30:55.506-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /138.129.225.3
+2025-05-02T10:30:55.506-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface lo0
+2025-05-02T10:30:55.506-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? true
+2025-05-02T10:30:55.506-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Ignoring remote address on loopback interface /fe80:0:0:0:0:0:0:1%lo0
+2025-05-02T10:30:55.506-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding loopback address /0:0:0:0:0:0:0:1%lo0
+2025-05-02T10:30:55.506-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding loopback address /127.0.0.1
+2025-05-02T10:30:55.510-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Listening on [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]].
+2025-05-02T10:30:55.519-0500 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] Daemon starting at: Fri May 02 10:30:55 CDT 2025, with address: [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]]
+2025-05-02T10:30:55.519-0500 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertising the daemon address to the clients: [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]]
+2025-05-02T10:30:55.519-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertised daemon context: DefaultDaemonContext[uid=58d8ffad-a6d9-49f9-8149-8c400ac21f66,javaHome=/Applications/Android Studio.app/Contents/jbr/Contents/Home,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt/daemon,pid=14171,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+2025-05-02T10:30:55.520-0500 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Storing daemon address: [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]], context: DefaultDaemonContext[uid=58d8ffad-a6d9-49f9-8149-8c400ac21f66,javaHome=/Applications/Android Studio.app/Contents/jbr/Contents/Home,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt/daemon,pid=14171,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+2025-05-02T10:30:55.542-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-05-02T10:30:55.549-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:30:55.552-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:30:55.552-0500 [LIFECYCLE] [org.gradle.launcher.daemon.server.Daemon] Daemon server started.
+2025-05-02T10:30:55.553-0500 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonStartupCommunication] Completed writing the daemon greeting. Closing streams...
+2025-05-02T10:30:55.559-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Accepted connection from /127.0.0.1:53204 to /127.0.0.1:53202.
+2025-05-02T10:30:55.570-0500 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stopOnExpiration() called on daemon
+2025-05-02T10:30:55.589-0500 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] awaitExpiration() called on daemon
+2025-05-02T10:30:55.593-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-05-02T10:30:55.602-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 31: received class org.gradle.launcher.daemon.protocol.Build
+2025-05-02T10:30:55.602-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 31: Received non-IO message from client: Build{id=ee2bbdeb-eb06-4572-91f8-59f54109877b, currentDir=/Users/josephdejong/Desktop/424PlanItMain/Crypto2.0WeLoveAds-main/PlanIt}
+2025-05-02T10:30:55.602-0500 [INFO] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received command: Build{id=ee2bbdeb-eb06-4572-91f8-59f54109877b, currentDir=/Users/josephdejong/Desktop/424PlanItMain/Crypto2.0WeLoveAds-main/PlanIt}.
+2025-05-02T10:30:55.603-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Starting executing command: Build{id=ee2bbdeb-eb06-4572-91f8-59f54109877b, currentDir=/Users/josephdejong/Desktop/424PlanItMain/Crypto2.0WeLoveAds-main/PlanIt} with connection: socket connection from /127.0.0.1:53202 to /127.0.0.1:53204.
+2025-05-02T10:30:55.605-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: started DaemonCommandExecution[command = Build{id=ee2bbdeb-eb06-4572-91f8-59f54109877b, currentDir=/Users/josephdejong/Desktop/424PlanItMain/Crypto2.0WeLoveAds-main/PlanIt}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:53202 to /127.0.0.1:53204] after 0.0019333333333333333 minutes of idle
+2025-05-02T10:30:55.605-0500 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as busy, address: [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]]
+2025-05-02T10:30:55.605-0500 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]]
+2025-05-02T10:30:55.605-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-05-02T10:30:55.606-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:30:55.606-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:30:55.606-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2025-05-02T10:30:55.607-0500 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=ee2bbdeb-eb06-4572-91f8-59f54109877b, currentDir=/Users/josephdejong/Desktop/424PlanItMain/Crypto2.0WeLoveAds-main/PlanIt}. Dispatching build started information...
+2025-05-02T10:30:55.607-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 34: dispatching org.gradle.launcher.daemon.protocol.BuildStarted@1874dd06
+2025-05-02T10:30:55.608-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-05-02T10:30:55.609-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment] Configuring env variables: [PATH, GSETTINGS_SCHEMA_DIR_CONDA_BACKUP, IJ_RESTARTER_LOG, CONDA_DEFAULT_ENV, CONDA_EXE, CONDA_PYTHON_EXE, COMMAND_MODE, CONDA_PREFIX, _CE_M, LOGNAME, XPC_SERVICE_NAME, CONDA_SHLVL, __CFBundleIdentifier, SHELL, OLDPWD, USER, TMPDIR, SSH_AUTH_SOCK, _CE_CONDA, XPC_FLAGS, __CF_USER_TEXT_ENCODING, CONDA_PROMPT_MODIFIER, GSETTINGS_SCHEMA_DIR, LC_CTYPE, HOME]
+2025-05-02T10:30:55.612-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+2025-05-02T10:30:55.613-0500 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 14171). The daemon log file: /Users/josephdejong/Desktop/PlanIt430/PlanIt/daemon/8.11.1/daemon-14171.out.log
+2025-05-02T10:30:55.614-0500 [INFO] [org.gradle.launcher.daemon.server.exec.LogAndCheckHealth] Starting build in new daemon [memory: 2 GiB]
+2025-05-02T10:30:55.616-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+2025-05-02T10:30:55.616-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=58d8ffad-a6d9-49f9-8149-8c400ac21f66,javaHome=/Applications/Android Studio.app/Contents/jbr/Contents/Home,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt/daemon,pid=14171,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+[Incubating] Problems report is available at: file:///Users/josephdejong/Desktop/424PlanItMain/Crypto2.0WeLoveAds-main/PlanIt/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 51s
+2025-05-02T10:31:42.920-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has finished executing the build.
+2025-05-02T10:31:42.955-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: finished waiting for DaemonCommandExecution[command = Build{id=ee2bbdeb-eb06-4572-91f8-59f54109877b, currentDir=/Users/josephdejong/Desktop/424PlanItMain/Crypto2.0WeLoveAds-main/PlanIt}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:53202 to /127.0.0.1:53204]. Result org.gradle.launcher.daemon.server.DaemonStateCoordinator@559cad98 with state Busy
+2025-05-02T10:31:42.956-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: completed DaemonCommandExecution[command = Build{id=ee2bbdeb-eb06-4572-91f8-59f54109877b, currentDir=/Users/josephdejong/Desktop/424PlanItMain/Crypto2.0WeLoveAds-main/PlanIt}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:53202 to /127.0.0.1:53204]
+2025-05-02T10:31:42.956-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2025-05-02T10:31:42.956-0500 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as idle, address: [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]]
+2025-05-02T10:31:42.956-0500 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]]
+2025-05-02T10:31:42.956-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-05-02T10:31:42.956-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:31:42.957-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:31:42.957-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.ReturnResult] Daemon is dispatching the build result: Success[value=org.gradle.launcher.exec.BuildActionResult@5de1925e]
+2025-05-02T10:31:42.957-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 30: dispatching Success[value=org.gradle.launcher.exec.BuildActionResult@5de1925e]
+2025-05-02T10:31:42.957-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-05-02T10:31:42.958-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.CleanUpVirtualFileSystemAfterBuild] Cleaning virtual file system after build finished
+2025-05-02T10:31:42.958-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Finishing executing command: Build{id=ee2bbdeb-eb06-4572-91f8-59f54109877b, currentDir=/Users/josephdejong/Desktop/424PlanItMain/Crypto2.0WeLoveAds-main/PlanIt}
+2025-05-02T10:31:42.958-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 31: received class org.gradle.launcher.daemon.protocol.CloseInput
+2025-05-02T10:31:42.959-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 31: Received IO message from client: org.gradle.launcher.daemon.protocol.CloseInput@6a18f2f2
+2025-05-02T10:31:42.959-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 31: received class org.gradle.launcher.daemon.protocol.Finished
+2025-05-02T10:31:42.959-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 31: Received non-IO message from client: org.gradle.launcher.daemon.protocol.Finished@379adead
+2025-05-02T10:31:42.959-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received finished message: org.gradle.launcher.daemon.protocol.Finished@379adead
+2025-05-02T10:31:42.959-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.SocketConnection] Discarding EOFException: java.io.EOFException
+2025-05-02T10:31:42.959-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 31: received null
+2025-05-02T10:31:42.959-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 31: Received end-of-input from client.
+2025-05-02T10:31:42.959-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 30: stopping connection
+2025-05-02T10:31:42.961-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 30: stopping connection
+2025-05-02T10:31:45.583-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:31:45.583-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:31:45.583-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:31:45.584-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:31:45.584-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:31:45.584-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:31:55.588-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:31:55.589-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:31:55.589-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:31:55.589-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:31:55.589-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:31:55.589-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:31:55.590-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:31:55.590-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:31:55.590-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:31:55.590-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:31:55.590-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:31:55.590-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:32:04.091-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Accepted connection from /127.0.0.1:53246 to /127.0.0.1:53202.
+2025-05-02T10:32:04.092-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 158: received class org.gradle.launcher.daemon.protocol.Build
+2025-05-02T10:32:04.092-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 158: Received non-IO message from client: Build{id=01abb0ca-24f4-409f-ad90-09044879ebad, currentDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt}
+2025-05-02T10:32:04.092-0500 [INFO] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received command: Build{id=01abb0ca-24f4-409f-ad90-09044879ebad, currentDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt}.
+2025-05-02T10:32:04.092-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Starting executing command: Build{id=01abb0ca-24f4-409f-ad90-09044879ebad, currentDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt} with connection: socket connection from /127.0.0.1:53202 to /127.0.0.1:53246.
+2025-05-02T10:32:04.092-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: started DaemonCommandExecution[command = Build{id=01abb0ca-24f4-409f-ad90-09044879ebad, currentDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:53202 to /127.0.0.1:53246] after 0.35225 minutes of idle
+2025-05-02T10:32:04.092-0500 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as busy, address: [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]]
+2025-05-02T10:32:04.092-0500 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]]
+2025-05-02T10:32:04.092-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-05-02T10:32:04.093-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:32:04.094-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:32:04.094-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2025-05-02T10:32:04.094-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-05-02T10:32:04.094-0500 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=01abb0ca-24f4-409f-ad90-09044879ebad, currentDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt}. Dispatching build started information...
+2025-05-02T10:32:04.094-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 34: dispatching org.gradle.launcher.daemon.protocol.BuildStarted@7d9447db
+2025-05-02T10:32:04.094-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment] Configuring env variables: [PATH, GSETTINGS_SCHEMA_DIR_CONDA_BACKUP, IJ_RESTARTER_LOG, CONDA_DEFAULT_ENV, CONDA_EXE, CONDA_PYTHON_EXE, COMMAND_MODE, CONDA_PREFIX, _CE_M, LOGNAME, XPC_SERVICE_NAME, CONDA_SHLVL, __CFBundleIdentifier, SHELL, OLDPWD, USER, TMPDIR, SSH_AUTH_SOCK, _CE_CONDA, XPC_FLAGS, __CF_USER_TEXT_ENCODING, CONDA_PROMPT_MODIFIER, GSETTINGS_SCHEMA_DIR, LC_CTYPE, HOME]
+2025-05-02T10:32:04.094-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+2025-05-02T10:32:04.095-0500 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 14171). The daemon log file: /Users/josephdejong/Desktop/PlanIt430/PlanIt/daemon/8.11.1/daemon-14171.out.log
+2025-05-02T10:32:04.095-0500 [INFO] [org.gradle.launcher.daemon.server.exec.LogAndCheckHealth] Starting 2nd build in daemon [uptime: 1 mins 8.718 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 2 GiB]
+2025-05-02T10:32:04.096-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+2025-05-02T10:32:04.096-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=58d8ffad-a6d9-49f9-8149-8c400ac21f66,javaHome=/Applications/Android Studio.app/Contents/jbr/Contents/Home,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt/daemon,pid=14171,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+w: file:///Users/josephdejong/Desktop/PlanIt430/PlanIt/app/src/main/java/com/crypto_20_we_love_ads/planit/ReminderReceiver.kt:168:44 'getFromLocationName(String, Int): (Mutable)List<Address!>?' is deprecated. Deprecated in Java
+[Incubating] Problems report is available at: file:///Users/josephdejong/Desktop/PlanIt430/PlanIt/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 15s
+32 actionable tasks: 32 executed
+2025-05-02T10:32:20.071-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has finished executing the build.
+2025-05-02T10:32:20.081-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: finished waiting for DaemonCommandExecution[command = Build{id=01abb0ca-24f4-409f-ad90-09044879ebad, currentDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:53202 to /127.0.0.1:53246]. Result org.gradle.launcher.daemon.server.DaemonStateCoordinator@559cad98 with state Busy
+2025-05-02T10:32:20.081-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: completed DaemonCommandExecution[command = Build{id=01abb0ca-24f4-409f-ad90-09044879ebad, currentDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:53202 to /127.0.0.1:53246]
+2025-05-02T10:32:20.081-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2025-05-02T10:32:20.081-0500 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as idle, address: [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]]
+2025-05-02T10:32:20.081-0500 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [07056a77-e2f9-4e4f-a46f-d9ae5f8c441c port:53202, addresses:[localhost/127.0.0.1]]
+2025-05-02T10:32:20.082-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-05-02T10:32:20.082-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:32:20.084-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:32:20.084-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.ReturnResult] Daemon is dispatching the build result: Success[value=org.gradle.launcher.exec.BuildActionResult@7dca248c]
+2025-05-02T10:32:20.084-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 30: dispatching Success[value=org.gradle.launcher.exec.BuildActionResult@7dca248c]
+2025-05-02T10:32:20.084-0500 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-05-02T10:32:20.085-0500 [DEBUG] [org.gradle.launcher.daemon.server.exec.CleanUpVirtualFileSystemAfterBuild] Cleaning virtual file system after build finished
+2025-05-02T10:32:20.085-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Finishing executing command: Build{id=01abb0ca-24f4-409f-ad90-09044879ebad, currentDir=/Users/josephdejong/Desktop/PlanIt430/PlanIt}
+2025-05-02T10:32:20.085-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 158: received class org.gradle.launcher.daemon.protocol.CloseInput
+2025-05-02T10:32:20.085-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 158: Received IO message from client: org.gradle.launcher.daemon.protocol.CloseInput@69baff76
+2025-05-02T10:32:20.085-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 158: received class org.gradle.launcher.daemon.protocol.Finished
+2025-05-02T10:32:20.085-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 158: Received non-IO message from client: org.gradle.launcher.daemon.protocol.Finished@677d0c31
+2025-05-02T10:32:20.086-0500 [DEBUG] [org.gradle.internal.remote.internal.inet.SocketConnection] Discarding EOFException: java.io.EOFException
+2025-05-02T10:32:20.086-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 158: received null
+2025-05-02T10:32:20.086-0500 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 158: Received end-of-input from client.
+2025-05-02T10:32:20.086-0500 [WARN] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Timed out waiting for finished message from client socket connection from /127.0.0.1:53202 to /127.0.0.1:53246. Discarding connection.
+2025-05-02T10:32:20.086-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 30: stopping connection
+2025-05-02T10:32:20.086-0500 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 30: stopping connection
+2025-05-02T10:32:25.585-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:32:25.587-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:32:25.587-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:32:25.588-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:32:25.588-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:32:25.588-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:32:35.584-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:32:35.585-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:32:35.585-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:32:35.585-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:32:35.586-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:32:35.586-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:32:35.586-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:32:35.586-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:32:35.586-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:32:39.711-0500 [DEBUG] [sun.rmi.transport.tcp] RMI Scheduler(0): close connection, socket: Socket[addr=localhost/127.0.0.1,port=17597,localport=53271]
+2025-05-02T10:32:39.711-0500 [DEBUG] [sun.rmi.transport.tcp] RMI Scheduler(0): close connection, socket: Socket[addr=localhost/127.0.0.1,port=17597,localport=53272]
+2025-05-02T10:32:39.786-0500 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(1)-127.0.0.1: (port 53273) connection closed
+2025-05-02T10:32:39.786-0500 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(1)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=53274,localport=53273]
+2025-05-02T10:32:39.786-0500 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(1)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=53274,localport=53273]
+2025-05-02T10:32:45.587-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:32:45.590-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:32:45.590-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:32:45.590-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:32:45.590-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:32:45.590-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-05-02T10:32:45.591-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-05-02T10:32:45.591-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-05-02T10:32:45.591-0500 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
